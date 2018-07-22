@@ -1,14 +1,13 @@
-</div><!--row-->
+            <footer class="page-footer white">
 
-<footer>
-    <div class="col-md-12" style="text-align:center;">
-        <hr>
-        Derechos Reservados - 2018
-    </div>
-</footer>
-</div><!-- /container -->
-
-<!-- /Load Js -->
-
-</body>
+                  <div class="footer-copyright">
+                    <div class="container">
+<p class="black-text center">
+                    Derechos Reservados | 2018
+</p>
+                    </div>
+                  </div>
+            </footer>
+    </body>
 </html>
+

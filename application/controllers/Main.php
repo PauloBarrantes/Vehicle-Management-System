@@ -6,6 +6,11 @@ class Main extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('welcome_message');
+        $data['title'] = "Inicio";
+        $this->load->view('MainViews/header',$data);
+        $this->load->view('MainViews/sidebar',$data);
+		$this->load->view('MainViews/index');
+        $this->load->view('MainViews/footer');
+
 	}
 }
