@@ -8,6 +8,7 @@ CREATE TABLE usuarios (
 
 CREATE TABLE vehiculos(
     placa varchar (6) NOT NULL PRIMARY KEY,
+    kilometraje int (20) NOT NULL ,
     combustible float Not NULL -- 0% - 100%
 
 );
