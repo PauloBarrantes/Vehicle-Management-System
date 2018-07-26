@@ -16,17 +16,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         CSS-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-        <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <!--Styles -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
         <link rel="stylesheet" href=" <?php echo base_url().'public/css/materialize.css'?>" media="screen,projection">
         <link rel="stylesheet" href=" <?php echo base_url().'public/css/style.css'?>" media="screen,projection">
         <link rel="stylesheet" href=" <?php echo base_url().'public/css/fullcalendar.css'?>">
         <link rel="stylesheet" href=" <?php echo base_url().'public/fullcalendar.print.css'?>" media='print'>
-
+        <!--Scripts -->
+        <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="<?php echo base_url().'public/js/highcharts.js' ?>"></script>
         <script src="<?php echo base_url().'public/js/moment.min.js' ?>"></script>
-        <script src="<?php echo base_url().'public/js/materialize.min.js' ?>"></script>
+        <script src="<?php echo base_url().'public/js/materialize.js' ?>"></script>
         <script src="<?php echo base_url().'public/js/jquery-1.10.2.js' ?>"></script>
         <script src="<?php echo base_url().'public/js/jquery-ui.custom.min.js' ?>"></script>
 
@@ -42,4 +43,4 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src='https:www.google.com/recaptcha/api.js'></script>
 
     </head>
-<body >
+<body>

@@ -1,3 +1,9 @@
+<style>
+ .col.s12 > .btn {
+       width: 50%;
+    }
+</style>
+
     <div class="container">
 
 
@@ -6,39 +12,40 @@
             <h5 class="header col s12 light">Sistema de administración de vehículos del Programa de Desarrollo Urbano Sostenible</h5>
             <h6 class="header col s12 light">Por favor inicia sesión</h6>
         </div>
-        <div class="row">
-            <div class="card col s6 offset-s3">
                 <br>
-                <div class="row">
 
-                    <!--Hacer que estos textielfs -->
+        <div id="login-page" class="row">
+            <div class=" offset-l3 offset-xl4 col s12 m12 l6 xl4 z-depth-3 card-panel">
+                <br>
+                <form class="login-form">
                     <div class="input-field  col s8 offset-s2">
-                        <i class="material-icons prefix">mode_edit</i>
-                       <input id="email_inline" type="email" class="validate">
-                       <label for="email_inline">Email</label>
-                       <span class="helper-text" data-error="wrong" data-success="right">GG la life</span>
-                     </div>
-                     <div class="input-field center col s8 offset-s2">
-                         <i class="material-icons prefix">mode_edit</i>
+                        <img> </img>
+                        <p class="center">Programa de Investigación de Desarrollo Urbano Sostenible </p>
+                    </div>
+                    <!--Input Field Email -->
+                    <div class="input-field  col s8 offset-s2">
+                        <i class="material-icons prefix">email</i>
+                        <input id="email_inline" type="email" class="validate">
+                        <label for="email_inline">Email</label>
+                    </div>
+                    <!--Input Field Password -->
+                    <div class="input-field center col s8 offset-s2">
+                        <i class="material-icons prefix">vpn_key</i>
+                        <input id="password" type="password" class="validate">
+                        <label for="password">Password</label>
+                    </div>
 
-                       <input id="password" type="password" class="validate">
-                       <label for="password">Password</label>
-                     </div>
-                     <style>
-                     .col.s12 > .btn {
-                           width: 50%;
-                        }
-                    </style>
-                    <div class="center col s12 ">
-                      <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Iniciar sesión
-                      </button>
-                  </div>
+                        <div class="input-field center col s12 ">
+                            <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Iniciar sesión
+                            </button>
+                        </div>
+                            <br><br>
 
-                 </div>
-                 <br>
+                    </form>
+
             </div>
-
-        </div>
 
 
     </div>
+
+</div>

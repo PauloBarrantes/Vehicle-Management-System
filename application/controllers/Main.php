@@ -20,4 +20,13 @@ class Main extends CI_Controller {
 		$this->load->view('MainViews/footer');
 
 	}
+	public function profile(){
+		$data['title'] = "Login";
+		$this->load->view('MainViews/header',$data);
+		$this->load->view('MainViews/sidebar',$data);
+		$this->load->view('MainViews/profile');
+		$this->load->view('MainViews/footer');
+
+	}
+
 }

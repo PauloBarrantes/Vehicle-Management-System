@@ -8,7 +8,17 @@
 
     </nav>
 </div>
+    <style>
+    header, main, footer {
+      padding-left: 240px;
+    }
 
+    @media only screen and (max-width : 992px) {
+      header, main, footer {
+        padding-left: 0;
+      }
+    }
+    </style>
   <ul id="mobile-demo" class="sidenav sidenav-fixed">
     <li><div class="user-view">
       <div class="background">
@@ -24,18 +34,18 @@
         <li><a href="\mantenimiento"><i class="material-icons ">settings</i>  Mantenimiento</a></li>
         <li><a href="\mantenimiento"><i class="material-icons ">account_circle</i>  Perfil</a> </li>
 
+    <li><div class="divider"></div></li>
+        <li><a class="subheader">Administrador</a></li>
+        <li><a class="waves-effect" href="/usuarios"><i class="material-icons ">people</i>Usuarios</a></li>
         <li><a href="\mantenimiento"><i class="material-icons ">commute</i>  Vehículos</a> </li>
     <li><div class="divider"></div></li>
-        <li><a class="subheader">Perfil</a></li>
-        <li><a class="waves-effect" href="#!">Mi Perfil</a></li>
-        <li><a class="waves-effect" href="#!">Cambiar Contraseña</a></li>
-    <li><div class="divider"></div></li>
 
     <li><div class="divider"></div></li>
 
-    <li><a class="waves-effect" href="#!">Cerrar Sesión</a></li>
+    <li><a class="waves-effect" href="#!"><i class="material-icons ">account_circle</i>Cerrar Sesión</a></li>
 
   </ul>
+
 
 
 
