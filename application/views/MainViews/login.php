@@ -18,10 +18,11 @@
 
                 <br>
                 <form class="login-form">
-                    <div class="input-field  col s8 offset-s2">
+                    <div class="center">
                         <img  src=" <?php echo base_url().'public/images/logo.png' ?>"> </img>
                         <p class="center">Programa de Investigación de Desarrollo Urbano Sostenible </p>
                     </div>
+                    <div class="divider"></div>
                     <!--Input Field Email -->
                     <div class="input-field  col s8 offset-s2">
                         <i class="material-icons prefix">email</i>

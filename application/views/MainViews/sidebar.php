@@ -1,5 +1,5 @@
 <div class "navbar-fixed">
-    <nav class=" navbar cyan">
+    <nav class=" navbar transparent z-depth-0">
             <div class="nav-wrapper container">
                 <a href="#" class="center brand-logo "> Administrador de Vehículos</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -28,11 +28,11 @@
       <a href="#name"><span class="white-text name">John Doe</span></a>
       <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
     </div></li>
-        <li><a class="waves-effect" href="#"><i class="material-icons">home</i>Inicio</a></li>
-        <li><a href="\reservaciones"><i class="material-icons ">bookmark</i>  Reservaciones</a></li>
-        <li><a href="\control"><i class="material-icons  ">assignment</i>  Control de Uso</a></li>
-        <li><a href="\mantenimiento"><i class="material-icons ">settings</i>  Mantenimiento</a></li>
-        <li><a href="\mantenimiento"><i class="material-icons ">account_circle</i>  Perfil</a> </li>
+        <li><a class="waves-effect" href=" <?php echo base_url().'/' ?>"><i class="material-icons">home</i>Inicio</a></li>
+        <li  class="active"><a href="#"><i class="material-icons ">bookmark</i>  Reservaciones</a></li>
+        <li><a href="#"><i class="material-icons  ">assignment</i>  Control de Uso</a></li>
+        <li><a href="#"><i class="material-icons ">settings</i>  Mantenimiento</a></li>
+        <li><a href="#"><i class="material-icons ">account_circle</i>  Perfil</a> </li>
 
     <li><div class="divider"></div></li>
         <li><a class="subheader">Administrador</a></li>

@@ -14,7 +14,7 @@
                     </div>
                     <br>
                     <div class="row center">
-                        <a href="/reservacion" id="download-button" class="btn-large waves-effect waves-light orange">Hacer Reservación</a>
+                        <a href=" <?php echo base_url().'/vehiculos/reservar' ?>" id="download-button" class="btn-large waves-effect waves-light orange">Hacer Reservación</a>
                     </div>
                 </div>
                 <br><br>
