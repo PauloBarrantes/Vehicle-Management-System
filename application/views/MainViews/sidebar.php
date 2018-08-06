@@ -10,7 +10,7 @@
 </div>
     <style>
     header, main, footer {
-      padding-left: 240px;
+      padding-left: 300px;
     }
 
     @media only screen and (max-width : 992px) {

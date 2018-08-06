@@ -1,7 +1,7 @@
 <!-- Body Form-->
 
 <div class="row">
-        <div class="section no-pad-bot col s10 offset-s2" id="index-banner">
+        <div class="section no-pad-bot " id="index-banner">
             <div class="container">
                 <br><br>
                 <h1 class="header center orange-text">¡Bienvenido!</h1>
@@ -43,11 +43,12 @@
         $('.fixed-action-btn').floatingActionButton();
 
         $('#calendar').fullCalendar({
+
             locale: 'es',
             header: {
                 left: 'prev,next today myCustomButton',
-                center: 'title',
-                right: 'month,agendaWeek,agendaDay, list'
+                right: 'title',
+                center: 'month,agendaWeek,agendaDay, list'
             }
 
         });

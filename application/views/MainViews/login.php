@@ -6,7 +6,6 @@
 
     <div class="container">
 
-
         <h1 class="header center orange-text">¡Bienvenido!</h1>
         <div class="row center">
             <h5 class="header col s12 light">Sistema de administración de vehículos del Programa de Desarrollo Urbano Sostenible</h5>
@@ -16,10 +15,11 @@
 
         <div id="login-page" class="row">
             <div class=" offset-l3 offset-xl4 col s12 m12 l6 xl4 z-depth-3 card-panel">
+
                 <br>
                 <form class="login-form">
                     <div class="input-field  col s8 offset-s2">
-                        <img> </img>
+                        <img  src=" <?php echo base_url().'public/images/logo.png' ?>"> </img>
                         <p class="center">Programa de Investigación de Desarrollo Urbano Sostenible </p>
                     </div>
                     <!--Input Field Email -->

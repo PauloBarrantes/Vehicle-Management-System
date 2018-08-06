@@ -12,20 +12,20 @@ body {
 
 
 </style>
+</main>
 
 
 
-            <footer class="page-footer white">
+<footer class="page-footer white">
 
-                  <div class="footer-copyright">
-                    <div class="container">
-<p class="black-text center">
+    <div class="footer-copyright">
+        <div class="container">
+            <p class="black-text center">
                     Derechos Reservados | 2018
-</p>
-                    </div>
-                  </div>
-            </footer>
-        </main>
+                </p>
+        </div>
+    </div>
+</footer>
 
-    </body>
+</body>
 </html>
