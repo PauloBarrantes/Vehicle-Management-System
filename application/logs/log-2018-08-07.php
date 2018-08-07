@@ -76,3 +76,15 @@ ERROR - 2018-08-07 09:26:50 --> Severity: Notice --> Undefined index: first_name
 ERROR - 2018-08-07 09:26:50 --> Severity: Notice --> Undefined index: last_name C:\xampp\htdocs\VMS\application\controllers\Main.php 95
 ERROR - 2018-08-07 09:26:51 --> Severity: Warning --> mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() C:\xampp\htdocs\VMS\system\libraries\Email.php 1896
 ERROR - 2018-08-07 09:26:51 --> Severity: Warning --> setcookie() expects parameter 3 to be integer, float given C:\xampp\htdocs\VMS\system\core\Input.php 408
+ERROR - 2018-08-07 09:46:09 --> Severity: Notice --> Undefined index: first_name C:\xampp\htdocs\VMS\application\controllers\Main.php 95
+ERROR - 2018-08-07 09:46:09 --> Severity: Notice --> Undefined index: last_name C:\xampp\htdocs\VMS\application\controllers\Main.php 95
+ERROR - 2018-08-07 09:46:10 --> Severity: Warning --> mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() C:\xampp\htdocs\VMS\system\libraries\Email.php 1896
+ERROR - 2018-08-07 09:46:10 --> Severity: Warning --> setcookie() expects parameter 3 to be integer, float given C:\xampp\htdocs\VMS\system\core\Input.php 408
+ERROR - 2018-08-07 09:46:15 --> Severity: Notice --> Undefined index: first_name C:\xampp\htdocs\VMS\application\controllers\Main.php 95
+ERROR - 2018-08-07 09:46:15 --> Severity: Notice --> Undefined index: last_name C:\xampp\htdocs\VMS\application\controllers\Main.php 95
+ERROR - 2018-08-07 09:46:16 --> Severity: Warning --> mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() C:\xampp\htdocs\VMS\system\libraries\Email.php 1896
+ERROR - 2018-08-07 09:46:16 --> Severity: Warning --> setcookie() expects parameter 3 to be integer, float given C:\xampp\htdocs\VMS\system\core\Input.php 408
+ERROR - 2018-08-07 09:57:39 --> Severity: Notice --> Undefined index: first_name C:\xampp\htdocs\VMS\application\controllers\Main.php 95
+ERROR - 2018-08-07 09:57:39 --> Severity: Notice --> Undefined index: last_name C:\xampp\htdocs\VMS\application\controllers\Main.php 95
+ERROR - 2018-08-07 09:57:40 --> Severity: Warning --> mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() C:\xampp\htdocs\VMS\system\libraries\Email.php 1896
+ERROR - 2018-08-07 09:57:40 --> Severity: Warning --> setcookie() expects parameter 3 to be integer, float given C:\xampp\htdocs\VMS\system\core\Input.php 408
