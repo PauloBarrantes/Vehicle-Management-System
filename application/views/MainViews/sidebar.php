@@ -1,7 +1,7 @@
 <div class "navbar-fixed">
-    <nav class=" navbar transparent z-depth-0">
+    <nav class=" navbar red z-depth-1">
             <div class="nav-wrapper container">
-                <a href="#" class="center brand-logo "> Administrador de Vehículos</a>
+                <a href="#" class="center brand-logo ">   <span class="white-text text-darken-2"></span></a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
             </div>
@@ -25,8 +25,8 @@
         <img src=" <?php echo base_url().'public/images/background.jpg' ?>" class="responsive-img">
       </div>
       <a href="#user"><img class="circle z-depth-5" src="<?php echo base_url().'public/images/chicken.png' ?>"></a>
-      <a href="#name"><span class="white-text name">John Doe</span></a>
-      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+      <a href="#name"><span class="white-text name">Paulo Barrantes</span></a>
+      <a href="#email"><span class="white-text email">paulobarrantes98@gmail.com</span></a>
     </div></li>
         <li><a class="waves-effect" href=" <?php echo base_url().'/' ?>"><i class="material-icons">home</i>Inicio</a></li>
         <li  class="active"><a href="#"><i class="material-icons ">bookmark</i>  Reservaciones</a></li>
@@ -42,7 +42,7 @@
 
     <li><div class="divider"></div></li>
 
-    <li><a class="waves-effect" href="#!"><i class="material-icons ">account_circle</i>Cerrar Sesión</a></li>
+    <li><a class="waves-effect" href="<?php echo base_url().'main/logout' ?>"><i class="fa fa-sign-out-alt"></i>Cerrar Sesión</a></li>
 
   </ul>
 
