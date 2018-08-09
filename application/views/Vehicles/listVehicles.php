@@ -1,9 +1,9 @@
 <div class="container">
-    <h2 class="text-center">Lista de Vehículos</h2>
+    <h2 class="center">Lista de Vehículos</h2>
     <br> </br>
     <div class="table-responsive ">
-        <table class="table table-hover table-bordered table-striped">
-        <thead class="thead-dark">
+        <table class="table hover responsive-table centered ">
+        <thead class="grey lighten-2 z-depth    2">
           <tr>
               <th>
                   Placa

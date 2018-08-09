@@ -23,16 +23,14 @@ class User extends CI_Model {
         $q = $this->db->insert_string('usuarios',$string);
         $this->db->query($q);
         return $this->db->insert_id();
-}
+      }
     //check is duplicate
-    public function isDuplicate($email)
-    {
+    public function isDuplicate($email){
         $this->db->get_where('usuarios', array('email' => $email), 1);
         return $this->db->affected_rows() > 0 ? TRUE : FALSE;
     }
     //Obtiene la informacion de un solo usuarios
-    public function getUserInfo($email)
-    {
+    public function getUserInfo($email){
         $q = $this->db->get_where('usuarios', array('email' => $email), 1);
         if($this->db->affected_rows() > 0){
             $row = $q->row();
@@ -45,27 +43,32 @@ class User extends CI_Model {
 
     // Revisa si el email coincide con el password dados
     public function checkLogin($post) {
-    $this->load->library('password');
-    $this->db->select('*');
-    $this->db->where('email', $post['email']);
-    $query = $this->db->get('usuarios');
-    $userInfo = $query->row();
-    $count = $query->num_rows();
+        $this->load->library('password');
+        $this->db->select('*');
+        $this->db->where('email', $post['email']);
+        $query = $this->db->get('usuarios');
+        $userInfo = $query->row();
+        $count = $query->num_rows();
 
-    if($count == 1){
-        if(!$this->password->validate_password($post['password'], $userInfo->password))
-        {
+        if($count == 1){
+            if(!$this->password->validate_password($post['password'], $userInfo->password))
+            {
+                error_log('Unsuccessful login attempt('.$post['email'].')');
+                return false;
+            }
+        }else{
             error_log('Unsuccessful login attempt('.$post['email'].')');
             return false;
         }
-    }else{
-        error_log('Unsuccessful login attempt('.$post['email'].')');
-        return false;
+
+        unset($userInfo->password);
+        return $userInfo;
     }
 
-    unset($userInfo->password);
-    return $userInfo;
-}
+    public function getUsers(){
+        $query = $this->db->get('usuarios');
+        return $query->result();
+    }
 
 
 

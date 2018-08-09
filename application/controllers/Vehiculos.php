@@ -8,7 +8,7 @@ class Vehiculos extends CI_Controller {
         $data['title'] = "Inicio";
         $this->load->view('MainViews/header',$data);
         $this->load->view('MainViews/sidebar',$data);
-		$this->load->view('MainViews/index');
+		$this->load->view('Vehicles/listVehicles',$data);
         $this->load->view('MainViews/footer');
 
 	}

@@ -1,5 +1,10 @@
 <!-- Body Form-->
-
+<style>
+.fc-header-left, fc-header-center, fc-header-right {
+    width: 100%;
+    display: block;
+}
+</style>
 <div class="row">
         <div class="section no-pad-bot " id="index-banner">
             <div class="container">
@@ -9,17 +14,19 @@
                     <h5 class="header col s12 light">Sistema para administrar el uso y mantenimiento de los vehículos del Programa de Investigación del Desarrollo Urbano Sostenible.</h5>
                 </div>
                 <div class="row">
-                    <div class="card">
+                    <div class="card col s6 z-depth-3 " >
                         <div id='wrap'>
 
-                        <div id='calendar'></div>
+                            <div id='calendar'></div>
 
-                        <div style='clear:both'></div>
+                            <div style='clear:both'></div>
                         </div>
                     </div>
+
                     <br>
-                    <div class="row center">
-                        <a href=" <?php echo base_url().'/vehiculos/reservar' ?>" id="download-button" class="btn-large waves-effect waves-light orange">Hacer Reservación</a>
+                    <div class="col s6 center">
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+                        <a href=" <?php echo base_url().'vehiculos/reservar' ?>" id="download-button" class="btn-large waves-effect waves-light orange">Hacer Reservación</a>
                     </div>
                 </div>
                 <br><br>
@@ -116,6 +123,7 @@
                 week: "MMMM yyyy", // September 2009
                 day: 'MMMM yyyy'                  // Tuesday, Sep 8, 2009
             },
+            aspectRatio: 2,
 			allDaySlot: false,
 			selectHelper: true,
 			select: function(start, end, allDay) {

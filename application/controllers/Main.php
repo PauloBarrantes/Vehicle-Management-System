@@ -70,9 +70,9 @@ class Main extends CI_Controller {
 
 
         $stLe = "VMS";
-		$tz = "America/Costa_Rica";
+				$tz = "America/Costa_Rica";
 
-		$now = new DateTime();
+				$now = new DateTime();
         $now->setTimezone(new DateTimezone($tz));
         $dTod =  $now->format('Y-m-d');
         $dTim =  $now->format('H:i:s');
@@ -87,32 +87,26 @@ class Main extends CI_Controller {
             'expire' => strtotime("+2 year"),
         );
         $getAccess = get_cookie($neMSC);
+				$this->input->set_cookie($setLogin, TRUE);
+				redirect(site_url().'main/');
 
-        if(!$getAccess && $setLogin["name"] == $neMSC){
-            $this->load->library('email');
-            $this->load->library('sendmail');
-            $bUrl = base_url();
-            $message = $this->sendmail->secureMail($data['first_name'],$data['last_name'],$data['email'],$dTod,$dTim,$stLe,$browser,$os,$getip,$bUrl);
-            $to_email = $data['email'];
-            $this->email->from($this->config->item('register'), 'New sign-in! from '.$browser.'');
-            $this->email->to($to_email);
-            $this->email->subject('New sign-in! from '.$browser.'');
-            $this->email->message($message);
-            $this->email->set_mailtype("html");
-            $this->email->send();
-
-            $this->input->set_cookie($setLogin, TRUE);
-            redirect(site_url().'main/');
-        }else{
-            $this->input->set_cookie($setLogin, TRUE);
-            redirect(site_url().'main/');
-        }
 	}
-	public function profile(){
+	public function perfil(){
 		$data['title'] = "Login";
 		$this->load->view('MainViews/header',$data);
 		$this->load->view('MainViews/sidebar',$data);
-		$this->load->view('MainViews/profile');
+		$this->load->view('Users/profile');
+		$this->load->view('MainViews/footer');
+
+	}
+	// Muestra la lista de los usuarios
+	public function usuarios(){
+		$data ['usuarios'] = $this->user_model->getUsers();
+
+		$data['title'] = "Usuarios";
+		$this->load->view('MainViews/header',$data);
+		$this->load->view('MainViews/sidebar',$data);
+		$this->load->view('Users/listUser', $data);
 		$this->load->view('MainViews/footer');
 
 	}

@@ -52,8 +52,7 @@
                     <br></br>
 
                         <div class="input-field center col s12 ">
-                            <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Iniciar sesión
-                            </button>
+                            <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Iniciar sesión</button>
                         </div>
                             <br><br>
                         <div class="input-field center col s12">
