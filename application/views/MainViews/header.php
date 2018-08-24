@@ -6,41 +6,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title><?php echo $title; ?></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <link rel="icon" href="<?php echo base_url().'public/quiniela.png'?>"
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
 
-        CSS-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="description" content="">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
 
         <!--Styles -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
-        <link rel="stylesheet" href=" <?php echo base_url().'public/css/materialize.css'?>" media="screen,projection">
         <link rel="stylesheet" href=" <?php echo base_url().'public/css/style.css'?>" media="screen,projection">
         <link rel="stylesheet" href=" <?php echo base_url().'public/css/fullcalendar.css'?>">
         <link rel="stylesheet" href=" <?php echo base_url().'public/css/fullcalendar.print.css'?>" media='print'>
+        <link rel="stylesheet" href=" <?php echo base_url().'public/css/material-dashboard.css?v=2.1.0'?>" media="screen,projection">
+
+
         <!--Scripts -->
-        <script src="<?php echo base_url().'public/js/moment.min.js' ?>"></script>
-        <script src="<?php echo base_url().'public/js/materialize.js' ?>"></script>
-        <script src="<?php echo base_url().'public/js/jquery-1.10.2.js' ?>"></script>
-        <script src="<?php echo base_url().'public/js/jquery-ui.custom.min.js' ?>"></script>
+        <script src="<?php echo base_url().'public/js/core/jquery.min.js' ?>"></script>
+        <script src="<?php echo base_url().'public/js/core/popper.min.js' ?>"></script>
+        <script src="<?php echo base_url().'public/js/core/bootstrap-material-design.min.js' ?>"></script>
+        <script src="<?php echo base_url().'public/js/plugins/perfect-scrollbar.jquery.min.js' ?>"></script>
 
         <script src="<?php echo base_url().'public/js/moment.min.js' ?>"></script>
+        <script src="<?php echo base_url().'public/js/plugins/chartist.min.js' ?>"></script>
 
-        <script src="https:cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+        <script src="<?php echo base_url().'public/js/plugins/bootstrap-notify.js' ?>"></script>
 
-        <script src="<?php echo base_url().'public/js/materialize.min.js' ?>"></script>
+
         <script src="<?php echo base_url().'public/js/moment-with-locales.js' ?>"></script>
         <script src="<?php echo base_url().'public/js/fullcalendar.js' ?>"></script>
-        <script src="<?php echo base_url().'public/js/init.js' ?>"></script>
+        <script src="<?php echo base_url().'public/js/material-dashboard.min.js' ?>"></script>
 
 
     </head>
 <body>
-
-<main>
+  <div class="wrapper ">

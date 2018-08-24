@@ -27,8 +27,22 @@ class Vehiculos extends CI_Controller {
 
         $this->load->view('Vehicles/reservation');
         $this->load->view('MainViews/footer');
-
     }
+
+		public function listaReservas(){
+
+		}
+		public function controlDeUso(){
+
+
+		}
+
+		public function mantenimiento(){
+
+
+		}
+
+
 
 
 

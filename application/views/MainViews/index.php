@@ -5,56 +5,14 @@
     display: block;
 }
 </style>
-<div class="row">
-        <div class="section no-pad-bot " id="index-banner">
+
             <div class="container">
-                <br><br>
-                <h1 class="header center orange-text">¡Bienvenido!</h1>
-                <div class="row center">
-                    <h5 class="header col s12 light">Sistema para administrar el uso y mantenimiento de los vehículos del Programa de Investigación del Desarrollo Urbano Sostenible.</h5>
-                </div>
-                <div class="row">
-                    <div class="card col s6 z-depth-3 " >
+                    <div class="card " >
                         <div id='wrap'>
-
                             <div id='calendar'></div>
-
-                            <div style='clear:both'></div>
                         </div>
                     </div>
-
-                    <br>
-                    <div class="col s6 center">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-                        <a href=" <?php echo base_url().'vehiculos/reservar' ?>" id="download-button" class="btn-large waves-effect waves-light orange">Hacer Reservación</a>
-                    </div>
-                </div>
-                <br><br>
-
             </div>
-            <div class="fixed-action-btn">
-                <a class="btn-floating btn-large blue">
-                    <i class="large material-icons">mode_edit</i>
-                </a>
-                <ul>
-                    <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-                    <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-                    <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-                    <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-                </ul>
-            </div>
-<div class="container">
-    <form action="#">
-<p class="range-field">
-<input type="range" id="test5" min="0" max="100" />
-</p>
-</form>
-
-          </form>
-      </div>
-        </div>
-</div>
-
 
 <!--  Scripts-->
 

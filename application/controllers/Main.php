@@ -24,9 +24,10 @@ class Main extends CI_Controller {
 
 	}
 
+
 	public function login(){
 		$data = $this->session->userdata;
-        if(!empty($data['email'])){
+      if(!empty($data['email'])){
 	        redirect(site_url().'main/');
 	    }else{
            	$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
@@ -48,7 +49,7 @@ class Main extends CI_Controller {
 					redirect(site_url().'main/login');
 				}
 				else{
-                        foreach($userInfo as $key=>$val){
+                    foreach($userInfo as $key=>$val){
                         $this->session->set_userdata($key, $val);
                 		}
                         redirect(site_url().'main/checkLoginUser/');
@@ -92,12 +93,11 @@ class Main extends CI_Controller {
 
 	}
 	public function perfil(){
-		$data['title'] = "Login";
+		$data['title'] = "Perfil";
 		$this->load->view('MainViews/header',$data);
 		$this->load->view('MainViews/sidebar',$data);
 		$this->load->view('Users/profile');
 		$this->load->view('MainViews/footer');
-
 	}
 	// Muestra la lista de los usuarios
 	public function usuarios(){
@@ -108,8 +108,18 @@ class Main extends CI_Controller {
 		$this->load->view('MainViews/sidebar',$data);
 		$this->load->view('Users/listUser', $data);
 		$this->load->view('MainViews/footer');
+	}
+	public function agregarUsuario(){
+		$data['title'] = "AgregarUsuario";
+
+		$this->load->view('MainViews/header',$data);
+		$this->load->view('MainViews/sidebar',$data);
+		$this->load->view('Users/addUser', $data);
+		$this->load->view('MainViews/footer');
 
 	}
+
+
 	//Cierra la sesion del usuario
 	public function logout() {
 		$this->session->sess_destroy();

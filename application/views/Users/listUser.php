@@ -1,6 +1,11 @@
 <div class="container">
     <h2 class="center">Lista de Usuarios</h2>
     <br> </br>
+    <div class="card">
+      <div class="card-header card-header-info">
+        <h4 class="card-title ">Usuarios</h4>
+      </div>
+    <div class="card-body">
     <div class="table-responsive ">
         <table class="table hover responsive-table centered ">
         <thead class="grey lighten-2 z-depth 2">
@@ -41,8 +46,8 @@
 
                        echo '<td>'.$row->email.'</td>';
                        echo '<td>'.$rolename.'</td>';
-                       echo '<td><a href="'.site_url().'main/changelevel"><button type="button" class="btn btn-primary">Rol</button></a></td>';
-                       echo '<td><a href="'.site_url().'main/deleteuser/'.$row->email.'"><button type="button" class="btn red">Eliminar</button></a></td>';
+                       echo '<td><a href="'.site_url().'main/changelevel"><button type="button" class="btn btn-secondary btn-rounded">Rol</button></a></td>';
+                       echo '<td><a href="'.site_url().'main/deleteuser/'.$row->email.'"><button type="button" class="btn btn-danger btn-rounded">Eliminar</button></a></td>';
                        echo '</tr>';
                        }
                    ?>
@@ -50,4 +55,6 @@
             </tbody>
         </table>
     </div>
+  </div>
+</div>
 </div>

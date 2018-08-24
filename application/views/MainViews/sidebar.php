@@ -1,59 +1,100 @@
-<div class "navbar-fixed">
-    <nav class=" navbar light-blue accent-3 z-depth-1">
-            <div class="nav-wrapper container">
-                <a href="#" class="center brand-logo ">   <span class="white-text text-darken-2"></span></a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-            </div>
+<style media="screen">
+    hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+</style>
+<div class="sidebar" data-color="danger" data-background-color="white">
+  <!--
+    Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
-    </nav>
+    Tip 2: you can also add an image using data-image tag
+-->
+  <div class="logo">
+    <a href="<?php echo site_url();?>main/perfil" class="simple-text logo-normal">
+      Paulo Barrantes
+    </a>
+  </div>
+  <div class="sidebar-wrapper">
+    <ul class="nav" id = "nav">
+      <li class="nav-item   ">
+        <a class="nav-link" href="<?php echo site_url();?>">
+          <i class="material-icons">home</i>
+          <p >Inicio</p>
+        </a>
+      </li>
+      <li class="nav-item   ">
+        <a class="nav-link" href="<?php echo site_url();?>vehiculos/listaReservas">
+          <i class="material-icons">book</i>
+          <p >Reservaciones</p>
+        </a>
+      </li>
+      <li class="nav-item   ">
+        <a class="nav-link" href="<?php echo site_url();?>main/perfil">
+          <i class="material-icons">person</i>
+          <p >Perfil</p>
+        </a>
+      </li>
+    </hr>
+    <li class="nav-item   ">
+      <a class="nav-link" href="<?php echo site_url();?>main/usuarios">
+        <i class="material-icons">person</i>
+        <p >Usuarios</p>
+      </a>
+    </li>
+    <li class="nav-item   ">
+      <a class="nav-link" href="<?php echo site_url();?>vehiculos/">
+        <i class="material-icons">person</i>
+        <p >Vehículos</p>
+      </a>
+    </li>
+      <!-- your sidebar here -->
+    </ul>
+  </div>
 </div>
-    <style>
-    header, main, footer {
-      padding-left: 300px;
-    }
-
-    @media only screen and (max-width : 992px) {
-      header, main, footer {
-        padding-left: 0;
-      }
-    }
-    </style>
-  <ul id="mobile-demo" class="sidenav sidenav-fixed">
-    <li><div class="user-view">
-      <div class="background">
-        <img src=" <?php echo base_url().'public/images/background.jpg' ?>" class="responsive-img">
+<div class="main-panel">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+    <div class="container-fluid">
+      <div class="navbar-wrapper">
+        <a class="navbar-brand" href="#pablo">Sistema de Administración de Vehículos</a>
       </div>
-      <a href=" <?php echo base_url().'main/perfil' ?>"><img class="circle z-depth-5" src="<?php echo base_url().'public/images/chicken.png' ?>"></a>
-      <a href=" <?php echo base_url().'main/perfil' ?>"><span class="white-text name">Paulo Barrantes</span></a>
-      <a href=" <?php echo base_url().'main/perfil' ?>"><span class="white-text email">paulobarrantes98@gmail.com</span></a>
-    </div></li>
-        <li><a class="waves-effect" href=" <?php echo base_url().'' ?>"><i class="material-icons">home</i>Inicio</a></li>
-        <li  class="active"><a href="#"><i class="material-icons ">bookmark</i>  Reservaciones</a></li>
-        <li><a href="#"><i class="material-icons  ">assignment</i>  Control de Uso</a></li>
-        <li><a href="#"><i class="material-icons ">settings</i>  Mantenimiento</a></li>
-        <li><a href=" <?php echo base_url().'main/perfil' ?>"><i class="material-icons ">account_circle</i>  Perfil</a> </li>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#pablo">
+              <i class="material-icons">notifications</i> Notificaciones
+            </a>
+          </li>
+          <!-- your navbar here -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <div class="content">
+    <div class="container-fluid">
+      <!-- your content here -->
 
-    <li><div class="divider"></div></li>
-        <li><a class="subheader">Administrador</a></li>
-        <li><a class="waves-effect" href=" <?php echo base_url().'main/usuarios' ?>"><i class="material-icons ">people</i>Usuarios</a></li>
-        <li><a href=" <?php echo base_url().'vehiculos' ?>"><i class="material-icons ">commute</i>  Vehículos</a> </li>
-    <li><div class="divider"></div></li>
+    <script>
+    $(document).ready(function () {
+    	var url = window.location;
+    	   $('ul.nav a[href="'+ url +'"]').parent().addClass('active');
+    	   $('ul.nav a').filter(function() {
+      		 return this.href == url;
+    	    }).parent().addClass('active');
+        });
 
-    <li><div class="divider"></div></li>
-
-    <li><a class="waves-effect" href="<?php echo base_url().'main/logout' ?>"><i class="fa fa-sign-out-alt"></i>Cerrar Sesión</a></li>
-
-  </ul>
-
+        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
 
 
-
-<script>
-
-      $(document).ready(function(){
-        $('.sidenav').sidenav();
-      });
-
-
-</script>
+    </script>
