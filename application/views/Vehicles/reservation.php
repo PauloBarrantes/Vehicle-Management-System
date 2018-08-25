@@ -1,42 +1,90 @@
-<div class="container">
 
-    <h1 class="header center orange-text">¡Bienvenido!</h1>
-    <div class="row center">
-        <h5 class="header col s12 light">Sistema de administración de vehículos del Programa de Desarrollo Urbano Sostenible</h5>
-        <h6 class="header col s12 light">Por favor inicia sesión</h6>
-    </div>
-            <br>
 
-    <div id="login-page" class="row">
-        <div class=" offset-l3 offset-xl4 col s12 m12 l6 xl4 z-depth-3 card-panel">
-            <br>
-            <form class="login-form">
-                <div class="input-field  col s8 offset-s2">
-                    <img> </img>
-                    <p class="center">Programa de Investigación de Desarrollo Urbano Sostenible </p>
-                </div>
-                <!--Input Field Email -->
-                <div class="input-field  col s8 offset-s2">
-                    <i class="material-icons prefix">email</i>
-                    <input id="email_inline" type="email" class="validate">
-                    <label for="email_inline">Email</label>
-                </div>
-                <!--Input Field Password -->
-                <div class="input-field center col s8 offset-s2">
-                    <i class="material-icons prefix">vpn_key</i>
-                    <input id="password" type="password" class="validate">
-                    <label for="password">Password</label>
-                </div>
+    <div class="container">
 
-                    <div class="input-field center col s12 ">
-                        <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Iniciar sesión
-                        </button>
-                    </div>
-                        <br><br>
+        <h1 class="text-center">¡Bienvenido!</h1>
 
-                </form>
-
+        <div class="text-center">
+            <h5 class="header col s12 light">Sistema de administración de vehículos del Programa de Desarrollo Urbano Sostenible</h5>
         </div>
+        <?php $fattr = array('class' => 'form-signin');
+         echo form_open(site_url().'main/login/', $fattr); ?>
+
+                <div class="row justify-content-center">
+                  <div class="col-md-6">
+                    <div class="card">
+                      <div class="card-header card-header-success">
+                        <h4 class="card-title">Reservación</h4>
+                        <p class="card-category">Llena los datos para procesar la reservación</p>
+                      </div>
+
+                      <div class="card-body">
+
+                        <form class="login-form">
+                          <div class="row justify-content-center">
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                  <label for="exampleFormControlSelect1">Seleccione el vehículo que desea reservar</label>
+                                  <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Carro 1 - </option>
+                                    <option>Carro 2 - </option>
+                                  </select>
+                                </div>
+                              </div>
+
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                  <label for="exampleFormControlSelect1">Fecha de Salida</label>
+                                  <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Carro 1 - </option>
+                                    <option>Carro 2 - </option>
+                                  </select>
+                                </div>
+                            </div>
+                            <div>
+                              <div class="form-check">
+                                  <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="">
+                                      Más de un día
+                                      <span class="form-check-sign">
+                                          <span class="check"></span>
+                                      </span>
+                                  </label>
+                              </div>
+                            </div>
+                            <div class="col-md-12">
+                              <div class="form-group">
+                                  <label for="exampleFormControlSelect1">Fecha de Llegada</label>
+                                  <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Carro 1 - </option>
+                                    <option>Carro 2 - </option>
+                                  </select>
+                                </div>
+                            </div>
+                            <div>
+                              <div class="form-check">
+                                  <label class="form-check-label">
+                                      <input class="form-check-input" type="checkbox" value="">
+                                      Todo el día
+                                      <span class="form-check-sign">
+                                          <span class="check"></span>
+                                      </span>
+                                  </label>
+                              </div>
+                            </div>
+
+                          <button class="btn btn-success centered btn-block" type="submit" name="action">Reservar</button>
+                          <br>
+
+                          <div class="clearfix"></div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Viejo-->
 
 
-</div>
+            </div>
+
+
+    </div>

@@ -7,13 +7,15 @@
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 </style>
-<div class="sidebar" data-color="danger" data-background-color="white">
+<div class="sidebar" data-color="danger" data-background-color="grey">
   <!--
     Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
     Tip 2: you can also add an image using data-image tag
 -->
   <div class="logo">
+
+
     <a href="<?php echo site_url();?>main/perfil" class="simple-text logo-normal">
       Paulo Barrantes
     </a>
@@ -26,10 +28,29 @@
           <p >Inicio</p>
         </a>
       </li>
-      <li class="nav-item   ">
-        <a class="nav-link" href="<?php echo site_url();?>vehiculos/listaReservas">
+      <li class="nav-item  ">
+        <a class="nav-link " href="<?php echo site_url();?>vehiculos/reservar">
+          <i class="material-icons">bookmark</i>
+          <p >Reservación</p>
+        </a>
+      </li>
+      <li class="nav-item  ">
+        <a class="nav-link " href="<?php echo site_url();?>vehiculos/listaReservas">
           <i class="material-icons">book</i>
-          <p >Reservaciones</p>
+          <p >Mis Reservaciones</p>
+        </a>
+      </li>
+
+      <li class="nav-item   ">
+        <a class="nav-link" href="<?php echo site_url();?>vehiculos/controlDeUso">
+          <i class="material-icons">local_gas_station</i>
+          <p >Control de Uso</p>
+        </a>
+      </li>
+      <li class="nav-item   ">
+        <a class="nav-link" href="<?php echo site_url();?>vehiculos/controlDeUso">
+          <i class="material-icons">local_gas_station</i>
+          <p >Mantenimiento</p>
         </a>
       </li>
       <li class="nav-item   ">
@@ -39,18 +60,32 @@
         </a>
       </li>
     </hr>
+    <li class="nav-item separator  ">
+
+    </li>
     <li class="nav-item   ">
       <a class="nav-link" href="<?php echo site_url();?>main/usuarios">
-        <i class="material-icons">person</i>
+        <i class="material-icons">people</i>
         <p >Usuarios</p>
       </a>
     </li>
+
+
     <li class="nav-item   ">
       <a class="nav-link" href="<?php echo site_url();?>vehiculos/">
-        <i class="material-icons">person</i>
+        <i class="material-icons">directions_car</i>
         <p >Vehículos</p>
       </a>
     </li>
+
+
+    <li class="nav-item   active-pro ">
+      <a class="nav-link" href="<?php echo site_url();?>main/logout">
+        <i class="fas fa-sign-out-alt"></i>
+        <p >Cerrar sesión</p>
+      </a>
+    </li>
+
       <!-- your sidebar here -->
     </ul>
   </div>
@@ -86,6 +121,7 @@
       <!-- your content here -->
 
     <script>
+
     $(document).ready(function () {
     	var url = window.location;
     	   $('ul.nav a[href="'+ url +'"]').parent().addClass('active');
@@ -94,7 +130,7 @@
     	    }).parent().addClass('active');
         });
 
-        $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+      $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
 
 
     </script>

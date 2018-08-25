@@ -5,6 +5,7 @@
     display: block;
 }
 </style>
+<button class="btn btn-warning centered btn-block">Hacer una reservación</button>
 
             <div class="container">
                     <div class="card " >
@@ -13,6 +14,8 @@
                         </div>
                     </div>
             </div>
+
+
 
 <!--  Scripts-->
 

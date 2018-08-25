@@ -28,7 +28,7 @@ class Main extends CI_Controller {
 	public function login(){
 		$data = $this->session->userdata;
       if(!empty($data['email'])){
-	        redirect(site_url().'main/');
+	        redirect(site_url());
 	    }else{
            	$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
            	$this->form_validation->set_rules('password', 'Password', 'required');
@@ -89,7 +89,7 @@ class Main extends CI_Controller {
         );
         $getAccess = get_cookie($neMSC);
 				$this->input->set_cookie($setLogin, TRUE);
-				redirect(site_url().'main/');
+				redirect(site_url());
 
 	}
 	public function perfil(){

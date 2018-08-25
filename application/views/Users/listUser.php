@@ -2,7 +2,7 @@
     <h2 class="center">Lista de Usuarios</h2>
     <br> </br>
     <div class="card">
-      <div class="card-header card-header-info">
+      <div class="card-header card-header-success">
         <h4 class="card-title ">Usuarios</h4>
       </div>
     <div class="card-body">
@@ -56,5 +56,7 @@
         </table>
     </div>
   </div>
+
 </div>
+<button class="btn btn-success centered btn-block">Añadir un usuario</button>
 </div>

@@ -17,12 +17,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <!--Styles -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
         <link rel="stylesheet" href=" <?php echo base_url().'public/css/style.css'?>" media="screen,projection">
         <link rel="stylesheet" href=" <?php echo base_url().'public/css/fullcalendar.css'?>">
         <link rel="stylesheet" href=" <?php echo base_url().'public/css/fullcalendar.print.css'?>" media='print'>
-        <link rel="stylesheet" href=" <?php echo base_url().'public/css/material-dashboard.css?v=2.1.0'?>" media="screen,projection">
+        <link rel="stylesheet" href=" <?php echo base_url().'public/css/material-dashboard.css'?>" media="screen,projection">
 
 
         <!--Scripts -->

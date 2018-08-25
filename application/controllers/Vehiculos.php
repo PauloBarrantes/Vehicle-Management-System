@@ -14,14 +14,15 @@ class Vehiculos extends CI_Controller {
 	}
 
     public function agregarVehiculo(){
-        $data['title'] = "vehículos";
+        $data['title'] = "Nuevo Vehículo";
         $this->load->view('MainViews/header',$data);
-        $this->load->view('MainViews/login');
+				$this->load->view('MainViews/sidebar',$data);
+				$this->load->view('Vehicles/addVehicle');
         $this->load->view('MainViews/footer');
 
     }
     public function reservar(){
-        $data['title'] = "vehículos";
+        $data['title'] = "Reservación";
         $this->load->view('MainViews/header',$data);
         $this->load->view('MainViews/sidebar',$data);
 
