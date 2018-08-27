@@ -1,4 +1,4 @@
-<div class="container row justify-content-center">
+<div class=" row justify-content-center">
   <br>
 <div class="col-md-6 align-center">
   <div class="card card-profile">
