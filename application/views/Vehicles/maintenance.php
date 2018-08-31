@@ -2,7 +2,11 @@
 
     <div class="container">
 
+        <h1 class="text-center">Mantenimiento</h1>
 
+        <div class="text-center">
+            <h5 class="header col s12 light">Agrega un reporte de mantenimiento que se le hizo a un vehículo.</h5>
+        </div>
         <?php $fattr = array('class' => 'form-signin');
          echo form_open(site_url().'main/login/', $fattr); ?>
 
@@ -96,8 +100,9 @@
                                   </script>
                                 </div>
                             </div>
-                            
+                            <div>
 
+                            </div>
 
                           <button class="btn btn-success centered btn-block" type="submit" name="action">Reservar</button>
                           <br>

@@ -1,11 +1,10 @@
 <!-- Body Form-->
-<style>
-.fc-header-left, fc-header-center, fc-header-right {
-    width: 100%;
-    display: block;
-}
-</style>
-<button class="btn btn-warning centered btn-block">Hacer una reservación</button>
+
+
+<div class="container">
+    <h1 class="text-center">¡Bienvenido!</h1>
+
+            <a href="<?php echo site_url();?>vehiculos/reservar"><button class="btn btn-warning centered btn-block"><i class="fas fa-bookmark"></i></i>  Hacer una reservación</button></a>
 
             <div class="container">
                     <div class="card " >
@@ -15,7 +14,7 @@
                     </div>
             </div>
 
-
+<div/>
 
 <!--  Scripts-->
 
@@ -231,4 +230,11 @@
 
 
 
+</style>
+
+<style>
+.fc-header-left, fc-header-center, fc-header-right {
+    width: 100%;
+    display: block;
+}
 </style>

@@ -10,8 +10,8 @@
                   <div class="col-md-6">
                     <div class="card">
                       <div class="card-header card-header-success">
-                        <h4 class="card-title">Agregar Vehículo</h4>
-                        <p class="card-category">Llena los datos para añadir el vehículo</p>
+                        <h4 class="card-title">Editar Vehículo</h4>
+                        <p class="card-category">Completa los datos que quieres editar del vehículo:</p>
                       </div>
 
                       <div class="card-body">

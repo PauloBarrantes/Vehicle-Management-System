@@ -10,8 +10,7 @@
       <div class="col-md-6">
         <div class="card">
           <div class="card-header card-header-success">
-            <h4 class="card-title">Agregar nuevo usuario</h4>
-            <p class="card-category">Por favor complete los datos para el nuevo usuario</p>
+            <h4 class="card-title">Editar mi perfil</h4>
           </div>
 
           <div class="card-body">
@@ -42,23 +41,10 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <div class="input-group">
-
-                      <input name="password"type="password" id="password"class="form-control" placeholder="Contraseña">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="input-group">
-
-                      <input name="passwordCheck"type="password" id="passwordCheck"class="form-control" placeholder="Digite de nuevo la contraseña">
-                    </div>
-                  </div>
-                </div>
+        
                 <br/>                <br/>
 
-              <button class="btn btn-success centered btn-block" type="submit" name="action">Registrar</button>
+              <button class="btn btn-success centered btn-block" type="submit" name="action">Editar Perfil</button>
               <br>
               <div class="clearfix"></div>
             </form>

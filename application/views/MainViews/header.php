@@ -22,6 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <link rel="stylesheet" href=" <?php echo base_url().'public/css/fullcalendar.css'?>">
         <link rel="stylesheet" href=" <?php echo base_url().'public/css/fullcalendar.print.css'?>" media='print'>
         <link rel="stylesheet" href=" <?php echo base_url().'public/css/material-dashboard.css'?>" media="screen,projection">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.10/combined/css/gijgo.min.css" media="screen,projection">
 
 
         <!--Scripts -->
@@ -38,7 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <script src="<?php echo base_url().'public/js/moment-with-locales.js' ?>"></script>
         <script src="<?php echo base_url().'public/js/fullcalendar.js' ?>"></script>
-        <script src="<?php echo base_url().'public/js/material-dashboard.min.js' ?>"></script>
+        <script src="<?php echo base_url().'public/js/material-dashboard.js'?>"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.10/combined/js/gijgo.min.js"></script>
 
 
     </head>

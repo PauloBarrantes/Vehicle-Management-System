@@ -9,10 +9,10 @@
       <h6 class="card-category text-gray">Administrador</h6>
       <h4 class="card-title">Paulo Barrantes</h4>
       <p class="card-description">
-        Don't be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>
-      <a href="#" class="btn btn-info btn-round">Editar Perfil</a>
-      <a href="#" class="btn btn-info btn-round">Cambiar Contraseña</a>
+      <a href="<?php echo site_url();?>/main/editarPerfil" class="btn btn-info btn-round">Editar Perfil</a>
+      <a href="<?php echo site_url();?>/main/cambiarContrasena" class="btn btn-info btn-round">Cambiar Contraseña</a>
 
     </div>
   </div>

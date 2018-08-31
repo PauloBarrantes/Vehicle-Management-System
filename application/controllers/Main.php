@@ -19,6 +19,7 @@ class Main extends CI_Controller {
 		$data['title'] = "Inicio";
         $this->load->view('MainViews/header',$data);
         $this->load->view('MainViews/sidebar',$data);
+		$this->load->view('MainViews/container');
 		$this->load->view('MainViews/index');
         $this->load->view('MainViews/footer');
 
@@ -36,6 +37,7 @@ class Main extends CI_Controller {
 			$data['title'] = "Login";
 			if($this->form_validation->run() == FALSE) {
 					  $this->load->view('MainViews/header',$data);
+					  $this->load->view('MainViews/container');
 					  $this->load->view('MainViews/login');
 					  $this->load->view('MainViews/footer');
             }else{
@@ -96,7 +98,26 @@ class Main extends CI_Controller {
 		$data['title'] = "Perfil";
 		$this->load->view('MainViews/header',$data);
 		$this->load->view('MainViews/sidebar',$data);
+		$this->load->view('MainViews/container');
+
 		$this->load->view('Users/profile');
+		$this->load->view('MainViews/footer');
+	}
+	public function editarPerfil(){
+		$data['title'] = "EditarPerfil";
+		$this->load->view('MainViews/header',$data);
+		$this->load->view('MainViews/sidebar',$data);
+		$this->load->view('MainViews/container');
+
+		$this->load->view('Users/editProfile');
+		$this->load->view('MainViews/footer');
+	}
+	public function cambiarContrasena(){
+		$data['title'] = "CambiarContraseña";
+		$this->load->view('MainViews/header',$data);
+		$this->load->view('MainViews/sidebar',$data);
+		$this->load->view('MainViews/container');
+		$this->load->view('Users/changePassword');
 		$this->load->view('MainViews/footer');
 	}
 	// Muestra la lista de los usuarios
@@ -106,6 +127,8 @@ class Main extends CI_Controller {
 		$data['title'] = "Usuarios";
 		$this->load->view('MainViews/header',$data);
 		$this->load->view('MainViews/sidebar',$data);
+		$this->load->view('MainViews/container');
+
 		$this->load->view('Users/listUser', $data);
 		$this->load->view('MainViews/footer');
 	}
@@ -114,6 +137,8 @@ class Main extends CI_Controller {
 
 		$this->load->view('MainViews/header',$data);
 		$this->load->view('MainViews/sidebar',$data);
+		$this->load->view('MainViews/container');
+
 		$this->load->view('Users/addUser', $data);
 		$this->load->view('MainViews/footer');
 

@@ -35,7 +35,7 @@
         </a>
       </li>
       <li class="nav-item  ">
-        <a class="nav-link " href="<?php echo site_url();?>vehiculos/listaReservas">
+        <a class="nav-link " href="<?php echo site_url();?>vehiculos/misReservaciones">
           <i class="material-icons">book</i>
           <p >Mis Reservaciones</p>
         </a>
@@ -48,8 +48,8 @@
         </a>
       </li>
       <li class="nav-item   ">
-        <a class="nav-link" href="<?php echo site_url();?>vehiculos/controlDeUso">
-          <i class="material-icons">local_gas_station</i>
+        <a class="nav-link" href="<?php echo site_url();?>vehiculos/mantenimiento">
+          <i class="fas fa-wrench"></i>
           <p >Mantenimiento</p>
         </a>
       </li>
@@ -79,6 +79,7 @@
     </li>
 
 
+
     <li class="nav-item   active-pro ">
       <a class="nav-link" href="<?php echo site_url();?>main/logout">
         <i class="fas fa-sign-out-alt"></i>
@@ -95,7 +96,7 @@
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
     <div class="container-fluid">
       <div class="navbar-wrapper">
-        <a class="navbar-brand" href="#pablo">Sistema de Administración de Vehículos</a>
+        <a class="navbar-brand" href="<?php echo site_url();?>">Sistema de Administración de Vehículos</a>
       </div>
       <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
         <span class="sr-only">Toggle navigation</span>
