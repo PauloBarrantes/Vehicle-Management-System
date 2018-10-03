@@ -13,14 +13,12 @@ class Main extends CI_Controller {
 	        $this->load->library('userlevel');
 	    }
 	public function index(){
-		$data = $this->session->userdata;
-
-
-		$data['title'] = "Inicio";
+				$data = $this->session->userdata;
+				$data['title'] = "Inicio";
         $this->load->view('MainViews/header',$data);
         $this->load->view('MainViews/sidebar',$data);
-		$this->load->view('MainViews/container');
-		$this->load->view('MainViews/index');
+				$this->load->view('MainViews/container');
+				$this->load->view('MainViews/index');
         $this->load->view('MainViews/footer');
 
 	}
