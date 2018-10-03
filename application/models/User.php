@@ -18,7 +18,7 @@ class User extends CI_Model {
             'apellido1'=>$data['lastname'],
             'email'=>$data['email'],
             'password'=>$data['password'],
-            'role'=>$data['role']
+            'rol'=>$data['rol']
         );
         $q = $this->db->insert_string('usuarios',$string);
         $this->db->query($q);

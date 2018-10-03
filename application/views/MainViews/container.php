@@ -2,14 +2,14 @@
      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
      <![endif]-->
      <script>
-         function showNotification(from, align, message){
+         function showNotificationWarning(from, align, type, message){
 
            $.notify({
-               icon: "warning",
+               icon: type,
                message: message
 
            },{
-               type: 'warning',
+               type: type,
                timer: 4000,
                placement: {
                    from: from,
@@ -27,7 +27,7 @@
      $arr = $this->session->flashdata();
      if(!empty($arr['flash_message'])){
         $html = '<script>';
-        $html .= 'showNotification(\'top\',\'right\', \' '.$arr['flash_message'].' \')';
+        $html .= 'showNotification(\'top\',\'right\', warning,\' '.$arr['flash_message'].' \')';
         $html .= '</script>';
         echo $html;
      }else if (!empty($arr['success_message'])){

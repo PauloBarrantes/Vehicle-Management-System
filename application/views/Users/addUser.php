@@ -1,11 +1,4 @@
 <div class="container">
-
-
-    <?php
-        $fattr = array('class' => 'form-signin');
-        echo form_open('/main/adduser', $fattr);
-    ?>
-
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="card">
@@ -16,7 +9,7 @@
 
           <div class="card-body">
 
-            <form class="login-form">
+            <form class="login-form" onsubmit="/main/agregarUsuario" method="post">
 
                 <div class="col-md-12">
                   <div class="form-group">
@@ -41,6 +34,21 @@
                       <input name="email"type="email" id="email"class="form-control" placeholder="Correo electrónico">
                     </div>
                   </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <div class="input-group">
+                        <?php
+                            $dd_list = array(
+                                        '1' => 'Admin',
+                                        '0' => 'Usuario',
+                                    );
+                            $dd_name = "rol";
+                            echo form_dropdown($dd_name, $dd_list, set_value($dd_name),'class = "form-control" id = "rol" name="rol" ');
+                        ?>
+                    </div>
+
+                    </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">

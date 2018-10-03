@@ -3,7 +3,7 @@
     <br/>
     <div class="card">
       <div class="card-header card-header-success">
-        <h4 class="card-title ">Paulo Barrantes - Mis reservas </h4>
+        <h4 class="card-title "><?php echo $nombre?> - Mis reservas </h4>
       </div>
     <div class="card-body">
     <div class="table-responsive ">

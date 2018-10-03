@@ -17,7 +17,7 @@
 
 
     <a href="<?php echo site_url();?>main/perfil" class="simple-text logo-normal">
-      Paulo Barrantes
+      <?php echo $nombre," " ,$apellido1; ?>
     </a>
   </div>
   <div class="sidebar-wrapper">

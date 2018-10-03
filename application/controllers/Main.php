@@ -7,26 +7,36 @@ class Main extends CI_Controller {
 	function __construct(){
 	        parent::__construct();
 	        $this->load->model('User', 'user_model', TRUE);
+			$this->load->model('Reservation', 'reservation_model', TRUE);
+
 	        $this->load->library('form_validation');
 	        $this->form_validation->set_error_delimiters('<div class="error">', '</div>');
 	        $this->roles = $this->config->item('roles');
 	        $this->load->library('userlevel');
 	    }
 	public function index(){
-				$data = $this->session->userdata;
-				$data['title'] = "Inicio";
-        $this->load->view('MainViews/header',$data);
-        $this->load->view('MainViews/sidebar',$data);
-				$this->load->view('MainViews/container');
-				$this->load->view('MainViews/index');
-        $this->load->view('MainViews/footer');
-
+		$data = $this->session->userdata;
+		if(empty($data)){
+			redirect(site_url().'main/login/');
+		}
+		if(empty($data['rol'])){
+			redirect(site_url().'main/login/');
+		}
+		$dataLevel = $this->userlevel->checkLevel($data['rol']);
+		if (empty($this->session->userdata['email'])) {
+			redirect(site_url().'main/login/');
+		}else {
+			$data['title'] = "Inicio";
+	        $this->load->view('MainViews/header',$data);
+	        $this->load->view('MainViews/sidebar',$data);
+			$this->load->view('MainViews/container');
+			$this->load->view('MainViews/index');
+    		$this->load->view('MainViews/footer');
+		}
 	}
-
-
 	public function login(){
 		$data = $this->session->userdata;
-      if(!empty($data['email'])){
+      	if(!empty($data['email'])){
 	        redirect(site_url());
 	    }else{
            	$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
@@ -93,53 +103,161 @@ class Main extends CI_Controller {
 
 	}
 	public function perfil(){
-		$data['title'] = "Perfil";
-		$this->load->view('MainViews/header',$data);
-		$this->load->view('MainViews/sidebar',$data);
-		$this->load->view('MainViews/container');
+		$data = $this->session->userdata;
 
-		$this->load->view('Users/profile');
-		$this->load->view('MainViews/footer');
+		if(empty($data)){
+			redirect(site_url().'main/login/');
+		}
+		if(empty($data['rol'])){
+			redirect(site_url().'main/login/');
+		}
+		$dataLevel = $this->userlevel->checkLevel($data['rol']);
+		if (empty($this->session->userdata['email'])) {
+			redirect(site_url().'main/login/');
+		}else {
+			$data['title'] = "Perfil";
+			$this->load->view('MainViews/header',$data);
+			$this->load->view('MainViews/sidebar',$data);
+			$this->load->view('MainViews/container');
+
+			$this->load->view('Users/profile');
+			$this->load->view('MainViews/footer');
+		}
 	}
 	public function editarPerfil(){
-		$data['title'] = "EditarPerfil";
-		$this->load->view('MainViews/header',$data);
-		$this->load->view('MainViews/sidebar',$data);
-		$this->load->view('MainViews/container');
+		$data = $this->session->userdata;
 
-		$this->load->view('Users/editProfile');
-		$this->load->view('MainViews/footer');
+		if(empty($data)){
+			redirect(site_url().'main/login/');
+		}
+		if(empty($data['rol'])){
+			redirect(site_url().'main/login/');
+		}
+		$dataLevel = $this->userlevel->checkLevel($data['rol']);
+		if (empty($this->session->userdata['email'])) {
+			redirect(site_url().'main/login/');
+		}else {
+			$data['title'] = "EditarPerfil";
+			$this->load->view('MainViews/header',$data);
+			$this->load->view('MainViews/sidebar',$data);
+			$this->load->view('MainViews/container');
+
+			$this->load->view('Users/editProfile');
+			$this->load->view('MainViews/footer');
+		}
 	}
 	public function cambiarContrasena(){
-		$data['title'] = "CambiarContraseña";
-		$this->load->view('MainViews/header',$data);
-		$this->load->view('MainViews/sidebar',$data);
-		$this->load->view('MainViews/container');
-		$this->load->view('Users/changePassword');
-		$this->load->view('MainViews/footer');
+		$data = $this->session->userdata;
+
+		if(empty($data)){
+			redirect(site_url().'main/login/');
+		}
+		if(empty($data['rol'])){
+			redirect(site_url().'main/login/');
+		}
+		$dataLevel = $this->userlevel->checkLevel($data['rol']);
+		if (empty($this->session->userdata['email'])) {
+			redirect(site_url().'main/login/');
+		}else {
+			$data['title'] = "CambiarContraseña";
+			$this->load->view('MainViews/header',$data);
+			$this->load->view('MainViews/sidebar',$data);
+			$this->load->view('MainViews/container');
+			$this->load->view('Users/changePassword');
+			$this->load->view('MainViews/footer');
+		}
 	}
 	// Muestra la lista de los usuarios
 	public function usuarios(){
-		$data ['usuarios'] = $this->user_model->getUsers();
+		$data = $this->session->userdata;
 
-		$data['title'] = "Usuarios";
-		$this->load->view('MainViews/header',$data);
-		$this->load->view('MainViews/sidebar',$data);
-		$this->load->view('MainViews/container');
+		if(empty($data)){
+			redirect(site_url().'main/login/');
+		}
+		if(empty($data['rol'])){
+			redirect(site_url().'main/login/');
+		}
+		$dataLevel = $this->userlevel->checkLevel($data['rol']);
+		if (empty($this->session->userdata['email'])) {
+			redirect(site_url().'main/login/');
+		}else {
+			if ($data['rol'] == 1) {
+				$data ['usuarios'] = $this->user_model->getUsers();
 
-		$this->load->view('Users/listUser', $data);
-		$this->load->view('MainViews/footer');
+				$data['title'] = "Usuarios";
+				$this->load->view('MainViews/header',$data);
+				$this->load->view('MainViews/sidebar',$data);
+				$this->load->view('MainViews/container');
+
+				$this->load->view('Users/listUser', $data);
+				$this->load->view('MainViews/footer');
+			}else{
+				redirect(site_url().'main/');
+			}
+
+		}
 	}
 	public function agregarUsuario(){
-		$data['title'] = "AgregarUsuario";
+		$data = $this->session->userdata;
 
-		$this->load->view('MainViews/header',$data);
-		$this->load->view('MainViews/sidebar',$data);
-		$this->load->view('MainViews/container');
+		if(empty($data)){
+			redirect(site_url().'main/login/');
+		}
+		if(empty($data['rol'])){
+			redirect(site_url().'main/login/');
+		}
+		$dataLevel = $this->userlevel->checkLevel($data['rol']);
+		if (empty($this->session->userdata['email'])) {
+			redirect(site_url().'main/login/');
+		}else {
+			if ($dataLevel =="is_admin") {
+				$this->form_validation->set_rules('name','Nombre','required');
+				$this->form_validation->set_rules('lastName','Apellido','required');
+				$this->form_validation->set_rules('email','Correo Electrónico','required|valid_email');
+				$this->form_validation->set_rules('rol','Rol','required');
+				$this->form_validation->set_rules('password','Contraseña','required|min_length[5]');
+				$this->form_validation->set_rules('passwordCheck','Confirmación de contraseña ','required|matches[password]');
 
-		$this->load->view('Users/addUser', $data);
-		$this->load->view('MainViews/footer');
 
+				$data['title'] = "AgregarUsuario";
+				if ($this->form_validation->run() == FALSE) {
+					$this->load->view('MainViews/header',$data);
+					$this->load->view('MainViews/sidebar',$data);
+					$this->load->view('MainViews/container');
+					$this->load->view('Users/addUser', $data);
+					$this->load->view('MainViews/footer');
+				}else{
+					if ($this->user_model->isDuplicate($this->input->post('email'))) {
+						$this->session->set_flashdata('flash_message','El correo electrónico ya está en uso');
+						redirect(site_url().'main/agregarUsuario');
+						// code...
+					}else {
+
+						//Acá hacemos cosas de seguridad como hacer xss clean y hashear el password
+						$this->load->library('password');
+						$post = $this->input->post(NULL, TRUE);
+						$cleanPost = $this->security->xss_clean($post);
+						$hashed = $this->password->create_hash($cleanPost['password']);
+						$cleanPost['email'] = $this->input->post['email'];
+						$cleanPost['rol'] = $this->input->post['rol'];
+						$cleanPost['firstname'] = $this->input->post['name'];
+						$cleanPost['lastname'] = $this->input->post['lastName'];
+						$cleanPost['password'] = $hashed;
+						unset($cleanPost['passwordCheck']);
+						//Acá lo insertamos en la base de datos
+						if (!$this->user_model->addUser($cleanPost)) {
+							$this->session->set_flashdata('flash_message','Existe un problema agregando al usuario');
+						}else{
+							$this->session->set_flashdata('success_message','Usuario agregado con éxito');
+						}
+						redirect(site_url().'main/usuarios/');
+					}
+				}
+
+			}else{
+				redirect(site_url().'main/');
+			}
+		}
 	}
 
 
