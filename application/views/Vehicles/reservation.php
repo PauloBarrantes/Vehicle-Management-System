@@ -21,7 +21,7 @@
                             <div class="col-md-12">
                               <div class="form-group">
                                   <label for="exampleFormControlSelect1">Seleccione el vehículo que desea reservar</label>
-                                  <select class="form-control" id="exampleFormControlSelect1">
+                                  <select class="form-control" id="exampleFormControlSelect1" name="carros">
                                     <option>Carro 1 - 123</option>
                                     <option>Carro 2 - 456</option>
                                   </select>
@@ -31,7 +31,7 @@
                             <div class="col-md-12">
                               <div class="form-group">
                                   <label >Fecha de Salida</label>
-                                  <input type="text" id="datepicker" class="form-control floating-label" placeholder="Anote la fecha de salida">
+                                  <input type="text" id="datepicker" class="form-control floating-label" placeholder="Anote la fecha de salida" name="fechaSalida">
 
                                   <script>
                                     $('#datepicker').datepicker();
@@ -39,7 +39,7 @@
                                 </div>
                               <div class="form-group">
                                   <label >Hora de Salida</label>
-                                  <input type="time" id="time1" class="form-control floating-label" placeholder="Anote la hora de salida">
+                                  <input type="time" id="time1" class="form-control floating-label" placeholder="Anote la hora de salida" name="horaSalida">
                                   <script>
                                     $('#time1').timepicker();
                                   </script>
@@ -48,7 +48,7 @@
                             <div class="row col-md-12 ">
                               <div class="form-check col-md-6" >
                                   <label class="form-check-label">
-                                      <input id="otherDaysCheck" class="form-check-input" type="checkbox" value="">
+                                      <input id="otherDaysCheck" class="form-check-input" type="checkbox" value="" name="masDias">
                                       Más de un día
                                       <span class="form-check-sign">
                                           <span class="check"></span>
@@ -57,7 +57,7 @@
                               </div>
                               <div class="form-check col-md-6">
                                   <label class="form-check-label">
-                                      <input id="allDay" class="form-check-input" type="checkbox" value="">
+                                      <input id="allDay" class="form-check-input" type="checkbox" value="" name="todoDia">
                                       Todo el día
                                       <span class="form-check-sign">
                                           <span class="check"></span>
@@ -80,23 +80,23 @@
                             </script>
 
                             <div class="col-md-12" >
-                              <div id = "otherDays" class="form-group" style="display:none">
+                                <div id = "otherDays" class="form-group" style="display:none">
                                   <label >Fecha de Llegada</label>
-                                  <input type="text" id="datepicker2" class="form-control floating-label" placeholder="Anote la fecha de salida">
+                                  <input type="text" id="datepicker2" class="form-control floating-label" placeholder="Anote la fecha de salida"/>
 
                                   <script>
                                     $('#datepicker2').datepicker();
                                   </script>
                                 </div>
-                              <div id="HoraLlegada" class="form-group">
+                                <div id="HoraLlegada" class="form-group">
                                   <label >Hora de Llegada</label>
-                                  <input type="time" id="time2" class="form-control floating-label" placeholder="Anote la hora de salida">
+                                  <input type="time" id="time2" class="form-control floating-label" placeholder="Anote la hora de salida"/>
                                   <script>
                                     $('#time2').timepicker();
                                   </script>
                                 </div>
                             </div>
-                            
+
 
 
                           <button class="btn btn-success centered btn-block" type="submit" name="action">Reservar</button>

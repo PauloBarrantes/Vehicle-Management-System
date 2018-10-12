@@ -90,7 +90,7 @@
                             </style>
                             <div class="support">
                                <a href="#">Olvide mi contraseña</a><br>
-                               <a href="#">Registrame</a>
+                              <!-- <a href="#">Registrame</a>-->
                             </div>
                           </div>
                           <div class="clearfix"></div>

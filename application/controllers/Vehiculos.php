@@ -5,6 +5,8 @@ class Vehiculos extends CI_Controller {
 
 
 	public function index(){
+		$data = $this->session->userdata;
+
         $data['title'] = "Inicio";
         $this->load->view('MainViews/header',$data);
         $this->load->view('MainViews/sidebar',$data);
@@ -16,12 +18,25 @@ class Vehiculos extends CI_Controller {
     public function agregarVehiculo(){
 		$data = $this->session->userdata;
 
-        $data['title'] = "Nuevo Vehículo";
-        $this->load->view('MainViews/header',$data);
-				$this->load->view('MainViews/sidebar',$data);
-				$this->load->view('Vehicles/addVehicle');
-        $this->load->view('MainViews/footer');
+		if(empty($data)){
+			redirect(site_url().'main/login/');
+		}
+		if(empty($data['rol'])){
+			redirect(site_url().'main/login/');
+		}
+		$dataLevel = $this->userlevel->checkLevel($data['rol']);
+		if (empty($this->session->userdata['email'])) {
+			redirect(site_url().'main/login/');
+		}else {
 
+
+
+    		$data['title'] = "Nuevo Vehículo";
+    		$this->load->view('MainViews/header',$data);
+			$this->load->view('MainViews/sidebar',$data);
+			$this->load->view('Vehicles/addVehicle');
+    		$this->load->view('MainViews/footer');
+		}
     }
 
     public function misReservaciones(){

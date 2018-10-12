@@ -21,7 +21,7 @@
                             <div class="col-md-12">
                               <div class="form-group">
                               <div class="input-group">
-                                  <input type="text" class="form-control" maxlength="6" placeholder="Placa">
+                                  <input type="text" class="form-control" maxlength="6" placeholder="Placa" name="placa">
                                 </div>
                             </div>
                             </div>
@@ -30,7 +30,7 @@
                               <div class="form-group">
                                     <div class="input-group">
 
-                                      <input type="text" class="form-control" placeholder="Marca">
+                                      <input type="text" class="form-control" placeholder="Marca" name="marca">
                                     </div>
                                   </div>
                             </div>
@@ -38,7 +38,7 @@
                               <div class="form-group">
                                     <div class="input-group">
 
-                                      <input type="text" class="form-control" placeholder="Modelo">
+                                      <input type="text" class="form-control" placeholder="Modelo" name="modelo">
                                     </div>
                                   </div>
                             </div>
@@ -48,7 +48,7 @@
                                       <div class="input-group-prepend">
                                         <div class="input-group-text">Km</div>
                                         </div>
-                                      <input type="number" min="0"class="form-control" placeholder="Kilometraje">
+                                      <input type="number" min="0"class="form-control" placeholder="Kilometraje" name="kilometraje">
                                     </div>
                                   </div>
                             </div>
@@ -151,7 +151,7 @@
                                     <label> Combustible </label>
 
                                   <div class="col-md-12 range-slider">
-                                    <input class="range-slider__range" type="range" value="0" min="0" max="100">
+                                    <input class="range-slider__range" type="range" value="0" min="0" max="100" name="combustible">
                                     <span class="range-slider__value"></span>
                                   </div>
                                 </div>

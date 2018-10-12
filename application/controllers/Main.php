@@ -230,22 +230,15 @@ class Main extends CI_Controller {
 					if ($this->user_model->isDuplicate($this->input->post('email'))) {
 						$this->session->set_flashdata('flash_message','El correo electrónico ya está en uso');
 						redirect(site_url().'main/agregarUsuario');
-						// code...
 					}else {
-
-						//Acá hacemos cosas de seguridad como hacer xss clean y hashear el password
+					 	$post = $this->input->post(NULL, TRUE);
 						$this->load->library('password');
-						$post = $this->input->post(NULL, TRUE);
-						$cleanPost = $this->security->xss_clean($post);
-						$hashed = $this->password->create_hash($cleanPost['password']);
-						$cleanPost['email'] = $this->input->post['email'];
-						$cleanPost['rol'] = $this->input->post['rol'];
-						$cleanPost['firstname'] = $this->input->post['name'];
-						$cleanPost['lastname'] = $this->input->post['lastName'];
-						$cleanPost['password'] = $hashed;
-						unset($cleanPost['passwordCheck']);
+						$hashed = $this->password->create_hash($post['password']);
+
+						$post['password'] = $hashed;
+						unset($post['passwordCheck']);
 						//Acá lo insertamos en la base de datos
-						if (!$this->user_model->addUser($cleanPost)) {
+						if (!$this->user_model->addUser($post)) {
 							$this->session->set_flashdata('flash_message','Existe un problema agregando al usuario');
 						}else{
 							$this->session->set_flashdata('success_message','Usuario agregado con éxito');

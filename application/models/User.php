@@ -13,16 +13,16 @@ class User extends CI_Model {
 
     }
     public function addUser($data){
-        $string = array(
-            'nombre'=>$data['firstname'],
-            'apellido1'=>$data['lastname'],
+        $usuario = array(
+            'nombre'=>$data['name'],
+            'apellido1'=>$data['lastName'],
             'email'=>$data['email'],
             'password'=>$data['password'],
             'rol'=>$data['rol']
         );
-        $q = $this->db->insert_string('usuarios',$string);
+        $q = $this->db->insert_string('usuarios',$usuario);
         $this->db->query($q);
-        return $this->db->insert_id();
+        return $this->db->affected_rows();
       }
     //check is duplicate
     public function isDuplicate($email){

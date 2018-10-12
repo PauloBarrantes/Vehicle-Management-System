@@ -45,6 +45,16 @@
                                  </div>
                             </div>
                             <div class="col-md-12">
+                                <div id="FechaSalida" class="form-group">
+                                         <label >Fecha de Salida</label>
+                                         <input type="text" id="datepicker" class="form-control floating-label" placeholder="Anote la fecha de salida">
+
+                                         <script>
+                                           $('#datepicker').datepicker();
+                                         </script>
+                                      </div>
+                            </div>
+                            <div class="col-md-12">
                                 <div id="HoraSalida" class="form-group">
                                          <label >Hora de Salida</label>
                                          <input type="text" id="tiempoSalida" name="tiempoSalida"class="form-control floating-label" placeholder="Anote la hora de salida">
@@ -52,7 +62,7 @@
                                            $('#tiempoSalida').timepicker();
                                          </script>
                                       </div>
-                                </div>
+                            </div>
 
                             <div class="col-md-12">
                               <div class="form-group">
@@ -133,6 +143,16 @@
                                     <option>01/09/2018 - Paulo</option>
                                   </select>
                                 </div>
+                           </div>
+                           <div class="col-md-12">
+                               <div id="FechaLlegada" class="form-group">
+                                        <label >Fecha de Llegada</label>
+                                        <input type="text" id="datepicker2" class="form-control floating-label" placeholder="Anote la fecha de llegada">
+
+                                        <script>
+                                          $('#datepicker2').datepicker();
+                                        </script>
+                                     </div>
                            </div>
                            <div class="col-md-12">
                                <div id="HoraLlegada" class="form-group">

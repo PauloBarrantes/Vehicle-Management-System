@@ -60,24 +60,29 @@
         </a>
       </li>
     </hr>
-    <li class="nav-item separator  ">
+    <?php
+        if ($rol == 1) {
+            ?>
+            <li class="nav-item separator  ">
 
-    </li>
-    <li class="nav-item   ">
-      <a class="nav-link" href="<?php echo site_url();?>main/usuarios">
-        <i class="material-icons">people</i>
-        <p >Usuarios</p>
-      </a>
-    </li>
+            </li>
+            <li class="nav-item   ">
+              <a class="nav-link" href="<?php echo site_url();?>main/usuarios">
+                <i class="material-icons">people</i>
+                <p >Usuarios</p>
+              </a>
+            </li>
 
 
-    <li class="nav-item   ">
-      <a class="nav-link" href="<?php echo site_url();?>vehiculos/">
-        <i class="material-icons">directions_car</i>
-        <p >Vehículos</p>
-      </a>
-    </li>
+            <li class="nav-item   ">
+              <a class="nav-link" href="<?php echo site_url();?>vehiculos/">
+                <i class="material-icons">directions_car</i>
+                <p >Vehículos</p>
+              </a>
+            </li>
+        <?php
 
+    } ?>
 
 
     <li class="nav-item   active-pro ">
