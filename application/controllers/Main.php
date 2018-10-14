@@ -27,10 +27,11 @@ class Main extends CI_Controller {
 			redirect(site_url().'main/login/');
 		}else {
 			$data['title'] = "Inicio";
+			$data['reservas'] = $this->reservation_model->getReservations();
 	        $this->load->view('MainViews/header',$data);
 	        $this->load->view('MainViews/sidebar',$data);
 			$this->load->view('MainViews/container');
-			$this->load->view('MainViews/index');
+			$this->load->view('MainViews/index',$data);
     		$this->load->view('MainViews/footer');
 		}
 	}
@@ -61,7 +62,7 @@ class Main extends CI_Controller {
 				else{
                     foreach($userInfo as $key=>$val){
                         $this->session->set_userdata($key, $val);
-                		}
+            		}
                         redirect(site_url().'main/checkLoginUser/');
                 }
 			}
@@ -81,9 +82,9 @@ class Main extends CI_Controller {
 
 
         $stLe = "VMS";
-				$tz = "America/Costa_Rica";
+		$tz = "America/Costa_Rica";
 
-				$now = new DateTime();
+		$now = new DateTime();
         $now->setTimezone(new DateTimezone($tz));
         $dTod =  $now->format('Y-m-d');
         $dTim =  $now->format('H:i:s');

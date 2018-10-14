@@ -4,7 +4,6 @@
 <div class="container">
     <h1 class="text-center">¡Bienvenido!</h1>
 
-            <a href="<?php echo site_url();?>vehiculos/reservar"><button class="btn btn-warning centered btn-block"><i class="fas fa-bookmark"></i></i>  Hacer una reservación</button></a>
 
             <div class="container">
                     <div class="card " >
@@ -13,6 +12,8 @@
                         </div>
                     </div>
             </div>
+            <a href="<?php echo site_url();?>vehiculos/reservar"><button class="btn btn-warning centered btn-block"><i class="fas fa-bookmark"></i></i>  Hacer una reservación</button></a>
+
 
 <div/>
 
@@ -59,7 +60,10 @@
 
 		/* initialize the calendar
 		-----------------------------------------------------------------*/
+        <?php
+            echo "var reservas = ".json_encode($reservas)."; \n";
 
+        ?>
 		var calendar =  $('#calendar').fullCalendar({
 			header: {
 				left: 'title',
@@ -127,6 +131,7 @@
 			},
 
 			events: [
+
 				{
 					title: 'All Day Event',
 					start: new Date(y, m, 1)

@@ -4,7 +4,7 @@
 
 
         <?php $fattr = array('class' => 'form-signin');
-         echo form_open(site_url().'main/login/', $fattr); ?>
+         echo form_open(site_url().'vehiculos/reservar/', $fattr); ?>
 
                 <div class="row justify-content-center">
                   <div class="col-md-6">
@@ -22,8 +22,13 @@
                               <div class="form-group">
                                   <label for="exampleFormControlSelect1">Seleccione el vehículo que desea reservar</label>
                                   <select class="form-control" id="exampleFormControlSelect1" name="carros">
-                                    <option>Carro 1 - 123</option>
-                                    <option>Carro 2 - 456</option>
+                                    <?php
+                                        foreach($vehiculos as $row)
+                                        {
+                                            echo '<option value = "'.$row->placa.'"> '.$row->marca." - ".$row->placa.'</option>';
+                                        }
+
+                                    ?>
                                   </select>
                                 </div>
                               </div>
@@ -57,7 +62,7 @@
                               </div>
                               <div class="form-check col-md-6">
                                   <label class="form-check-label">
-                                      <input id="allDay" class="form-check-input" type="checkbox" value="" name="todoDia">
+                                      <input id="allDay" class="form-check-input" type="checkbox" value="" name="allDay">
                                       Todo el día
                                       <span class="form-check-sign">
                                           <span class="check"></span>
@@ -69,20 +74,20 @@
                             <script>
                                 $(document).ready(function(){
                                   $("#otherDaysCheck").click(function(){
-                                    $("#otherDays").toggle("slow");
+                                    $("#FechaLlegada").toggle("slow");
                                     $('#allDay  ').is('[disabled=disabled]')
                                   });
                                   $("#allDay").click(function(){
-                                    $("#otherDays").toggle("slow");
+                                    $("#HoraLlegada").toggle("slow");
                                   });
                               });
 
                             </script>
 
                             <div class="col-md-12" >
-                                <div id = "otherDays" class="form-group" style="display:none">
+                                <div id = "FechaLlegada" class="form-group" style="display:none">
                                   <label >Fecha de Llegada</label>
-                                  <input type="text" id="datepicker2" class="form-control floating-label" placeholder="Anote la fecha de salida"/>
+                                  <input type="text" id="datepicker2" class="form-control floating-label" placeholder="Anote la fecha de salida"/ name="fechaLlegada">
 
                                   <script>
                                     $('#datepicker2').datepicker();
@@ -90,7 +95,7 @@
                                 </div>
                                 <div id="HoraLlegada" class="form-group">
                                   <label >Hora de Llegada</label>
-                                  <input type="time" id="time2" class="form-control floating-label" placeholder="Anote la hora de salida"/>
+                                  <input type="time" id="time2" class="form-control floating-label" placeholder="Anote la hora de salida" name="horaLlegada">
                                   <script>
                                     $('#time2').timepicker();
                                   </script>

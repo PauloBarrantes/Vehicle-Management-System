@@ -4,7 +4,7 @@
 
 
         <?php $fattr = array('class' => 'form-signin');
-         echo form_open(site_url().'main/login/', $fattr); ?>
+         echo form_open(site_url().'vehiculos/agregarVehiculo/', $fattr); ?>
 
                 <div class="row justify-content-center">
                   <div class="col-md-6">

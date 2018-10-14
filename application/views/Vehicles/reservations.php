@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 class="text-center">Mis reservaciones</h2>
+
     <br/>
     <div class="card">
       <div class="card-header card-header-success">
@@ -10,35 +10,56 @@
         <table class="table hover responsive-table centered ">
         <thead class="grey lighten-2 z-depth 2">
           <tr>
-              <th >
+              <th class="text-center">
                   Carro
               </th>
-              <th>
+              <th class="text-center">
                   Fecha de Salida
               </th>
-              <th>
+              <th class="text-center">
                  Hora de Salida
               </th>
-              <th>
+              <th class="text-center">
                  Todo el Día
               </th>
-              <th>
+              <th class="text-center">
                  Más de un día
               </th>
-              <th>
+              <th class="text-center">
                  Fecha de Llegada
               </th>
-              <th>
+              <th class="text-center">
                  Hora de Llegada
               </th>
-              <th colspan="2">
+              <th class="text-center">
                   Editar
               </th>
           </tr>
       </thead>
             <tbody>
+                <?php
+                   foreach($reservas as $row){
+                       $fechaInicio = new DateTime ($row->FechaInicio);
+                       $fechaFinal = new DateTime ($row->FechaFinalizacion);
+                       $horaInicio = new DateTime ($row->HoraInicio);
+                       $horaFinal = new DateTime ($row->HoraFinalizacion);
 
+                       echo '<tr>';
+                       echo '<td class = "text-center">'.$row->PlacaVehiculo.'</td>';
+                       echo '<td class = "text-center">'.$fechaInicio->format('d/m/Y').'</td>';
+                       echo '<td class = "text-center">'.$horaInicio->format('h:i a').'</td>';
+                       echo '<td class = "text-right">'."1".'</td>';
+                       echo '<td class = "text-right">'."1".'</td>';
+                       echo '<td class = "text-center">'.$fechaFinal->format('d/m/Y').'</td>';
 
+                       echo '<td class = "text-center">'.$horaFinal->format('h:i a').'</td>';
+                       echo '<td class = "text-center">
+                            <button class = "btn btn-danger">Eliminar</button>
+                       </td>';
+
+                       echo '</tr>';
+                   }
+                   ?>
             </tbody>
         </table>
     </div>
