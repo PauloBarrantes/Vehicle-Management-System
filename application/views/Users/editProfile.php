@@ -3,7 +3,7 @@
 
     <?php
         $fattr = array('class' => 'form-signin');
-        echo form_open('/main/adduser', $fattr);
+        echo form_open('main/editarPerfil', $fattr);
     ?>
 
     <div class="row justify-content-center">
@@ -21,7 +21,9 @@
                   <div class="form-group">
                     <div class="input-group">
 
-                      <input name="name"type="text" id="name"class="form-control" placeholder="Nombre">
+                      <input name="name"type="text" id="name"class="form-control" placeholder="Nombre"
+                      value=<?php echo "".$datosPerfil->nombre ?>
+                      >
                     </div>
                   </div>
                 </div>
@@ -29,7 +31,10 @@
                   <div class="form-group">
                     <div class="input-group">
 
-                      <input name="lastName"type="text" id="lastName"class="form-control" placeholder="Apellido">
+                      <input name="lastName"type="text" id="lastName"class="form-control" placeholder="Apellido"
+
+                      value=<?php echo "".$datosPerfil->apellido1  ?>
+                      >
                     </div>
                   </div>
                 </div>
@@ -37,11 +42,12 @@
                   <div class="form-group">
                     <div class="input-group">
 
-                      <input name="email"type="email" id="email"class="form-control" placeholder="Correo electrónico">
+                      <input name="email"type="email" id="email"class="form-control" placeholder="Correo electrónico"
+                            value=<?php echo "".$datosPerfil->email  ?>>
                     </div>
                   </div>
                 </div>
-        
+
                 <br/>                <br/>
 
               <button class="btn btn-success centered btn-block" type="submit" name="action">Editar Perfil</button>

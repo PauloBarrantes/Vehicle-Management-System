@@ -47,7 +47,10 @@
                            echo '<td>'.$row->email.'</td>';
                            echo '<td>'.$rolename.'</td>';
                            echo '<td><a href="'.site_url().'main/changelevel"><button type="button" class="btn btn-secondary btn-rounded">Rol</button></a></td>';
-                           echo '<td><a href="'.site_url().'main/deleteuser/'.$row->email.'"><button type="button" class="btn btn-danger btn-rounded">Eliminar</button></a></td>';
+                           $encodedEmail=urlencode($row->email);
+                           echo '<td><a href="'.site_url().'main/deleteuser/'.
+                           $encodedEmail.
+                           '"><button type="button" class="btn btn-danger btn-rounded">Eliminar</button></a></td>';
                            echo '</tr>';
                            }
                            ?>

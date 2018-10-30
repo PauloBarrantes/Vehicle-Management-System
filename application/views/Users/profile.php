@@ -19,8 +19,8 @@
       <p class="card-description">
           <?php echo $email  ?>
       </p>
-      <a href="<?php echo site_url();?>/main/editarPerfil" class="btn btn-info btn-round">Editar Perfil</a>
-      <a href="<?php echo site_url();?>/main/cambiarContrasena" class="btn btn-info btn-round">Cambiar Contraseña</a>
+      <a href="<?php echo site_url();?>main/editarPerfil" class="btn btn-info btn-round">Editar Perfil</a>
+      <a href="<?php echo site_url();?>main/cambiarContrasena" class="btn btn-info btn-round">Cambiar Contraseña</a>
 
     </div>
   </div>

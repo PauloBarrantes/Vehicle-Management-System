@@ -117,11 +117,12 @@ class Main extends CI_Controller {
 			redirect(site_url().'main/login/');
 		}else {
 			$data['title'] = "Perfil";
+			$data['datosPerfil'] = $this->user_model->getUserInfo($data['email']);
 			$this->load->view('MainViews/header',$data);
 			$this->load->view('MainViews/sidebar',$data);
 			$this->load->view('MainViews/container');
 
-			$this->load->view('Users/profile');
+			$this->load->view('Users/profile',$data);
 			$this->load->view('MainViews/footer');
 		}
 	}
@@ -135,16 +136,49 @@ class Main extends CI_Controller {
 			redirect(site_url().'main/login/');
 		}
 		$dataLevel = $this->userlevel->checkLevel($data['rol']);
+		$data['datosPerfil'] = $this->user_model->getUserInfo($data['email']);
+
 		if (empty($this->session->userdata['email'])) {
 			redirect(site_url().'main/login/');
-		}else {
-			$data['title'] = "EditarPerfil";
-			$this->load->view('MainViews/header',$data);
-			$this->load->view('MainViews/sidebar',$data);
-			$this->load->view('MainViews/container');
+		}else{
+           	$this->form_validation->set_rules('name', 'Nombre', 'required');
+			$this->form_validation->set_rules('lastName', 'Apellido', 'required');
+			$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+           	$this->user_model->getUserInfo($data['email']);
 
-			$this->load->view('Users/editProfile');
-			$this->load->view('MainViews/footer');
+			$data['title'] = "EditarPerfil";
+			if($this->form_validation->run() == FALSE) {
+				$this->load->view('MainViews/header',$data);
+				$this->load->view('MainViews/sidebar',$data);
+				$this->load->view('MainViews/container');
+				$this->load->view('Users/editProfile',$data);
+				$this->load->view('MainViews/footer');
+            }else{
+				$post = $this->input->post();
+				if (
+					$post['email'] == $data['datosPerfil']->email
+					&&
+					$post['name'] == $data['datosPerfil']->nombre
+					&&
+					$post['lastName'] == $data['datosPerfil']->apellido1
+				) {
+					$this->load->view('MainViews/header',$data);
+					$this->load->view('MainViews/sidebar',$data);
+					$this->load->view('MainViews/container');
+					$this->load->view('Users/editProfile',$data);
+					$this->load->view('MainViews/footer');
+				}else{
+					if(!$this->user_model->editProfile($data['email'],$post)){
+						$this->session->set_flashdata('flash_message','Existe un problema agregando al usuario');
+					}else{
+						$this->session->set_flashdata('success_message','Usuario agregado con éxito');
+						$data['email'] = $post['email'];
+						$data['nombre'] = $post['name'];
+						$data['apellido1'] = $post['lastName'];
+					}
+					redirect(site_url().'main/editarPerfil');
+				}
+			}
 		}
 	}
 	public function cambiarContrasena(){
@@ -254,7 +288,32 @@ class Main extends CI_Controller {
 		}
 	}
 
+	//delete user
+    public function deleteuser($emailEncode) {
+		$data = $this->session->userdata;
+		$email = urldecode($emailEncode);
+        if(empty($data['rol'])){
+	        	redirect(site_url().'main/login/');
+	    }
+	    $dataLevel = $this->userlevel->checkLevel($data['rol']);
+  	    //check user level
 
+  	    //check is admin or not
+  	    if($dataLevel == "is_admin"){
+      		$this->user_model->deleteUser($email);
+      		if($this->user_model->deleteUser($email) == FALSE )
+      		{
+      		    $this->session->set_flashdata('flash_message', 'Error, no podemos eliminar este usuario!');
+      		}
+      		else
+      		{
+      		    $this->session->set_flashdata('success_message', 'Usuario eliminado satisfactoriamente');
+      		}
+      		redirect(site_url().'main/usuarios');
+  	    }else{
+  		    redirect(site_url().'main/');
+  	    }
+      }
 	//Cierra la sesion del usuario
 	public function logout() {
 		$this->session->sess_destroy();

@@ -1,4 +1,5 @@
 <div class="container">
+
     <div class="row justify-content-center">
         <h2 class="text-center">Control de uso</h2>
         <div class="text-center">
@@ -38,31 +39,49 @@
                             <div class="col-md-12">
                                <div class="form-group">
                                    <label for="reservacionSalida">Seleccione la reserva a la que corresponde el reporte</label>
-                                   <select class="form-control" id="reservacionSalida">
-                                     <option>28/08/2018 - Paulo</option>
-                                     <option>01/09/2018 - Paulo</option>
+                                   <select class="form-control" id="reservacionSalida" name="reservacionSalida" onchange="selectReservation()">
+                                       <?php
+                                       foreach($reservasSalida as $row){
+                                           $fechaInicio = new DateTime ($row->FechaInicio);
+                                           $horaInicio = new DateTime ($row->HoraInicio);
+                                           echo "<option>".$row->PlacaVehiculo." - ".$fechaInicio->format('d/m/Y')." - ".$horaInicio->format('h:i a')."</option>";
+                                       }
+
+                                       ?>
                                    </select>
                                  </div>
                             </div>
-                            <div class="col-md-12">
-                                <div id="FechaSalida" class="form-group">
-                                         <label >Fecha de Salida</label>
-                                         <input type="text" id="datepicker" class="form-control floating-label" placeholder="Anote la fecha de salida">
+                            <script>
+                                function selectReservation(){
+                                    var select = $("#reservacionSalida");
+                                    var texto = select.val();
+                                    var splitTexto = texto.split(" - ");
+                                    $("#placa").html("Placa del vehículo: "+splitTexto[0]);
+                                    $("#fechaSalida").html("Fecha de Salida: "+splitTexto[1]);
+                                    $("#horaSalida").html("Hora de Salida: "+splitTexto[2]);
+                                    $("#inputPlaca").val(splitTexto[0]);
+                                    $("#inputFechaSalida").val(splitTexto[1]);
+                                    $("#inputHoraSalida").val(splitTexto[2]);
+                                }
 
-                                         <script>
-                                           $('#datepicker').datepicker();
-                                         </script>
-                                      </div>
+                            </script>
+                            <div class="divider"></div>
+                            <div class="col-md-12" >
+                                <h6 class="text-left">Datos de la reserva</h6>
                             </div>
-                            <div class="col-md-12">
-                                <div id="HoraSalida" class="form-group">
-                                         <label >Hora de Salida</label>
-                                         <input type="text" id="tiempoSalida" name="tiempoSalida"class="form-control floating-label" placeholder="Anote la hora de salida">
-                                         <script>
-                                           $('#tiempoSalida').timepicker();
-                                         </script>
-                                      </div>
+                            <div class="col-md-12" >
+                                 <label id = "placa">Placa del vehículo: </label>
+                                    <br/>
+                                <input type="hidden" name="inputPlaca" id="inputPlaca"></input>
+
+                                 <label id = "fechaSalida">Fecha de Salida: </label>
+                                    <br/>
+                                <input type="hidden" name="inputFechaSalida" id="inputFechaSalida"></input>
+
+                                 <label id = "horaSalida">Hora de Salida: </label>
+                                 <input type="hidden" name="inputHoraSalida" id="inputHoraSalida"></input>
                             </div>
+
 
                             <div class="col-md-12">
                               <div class="form-group">
@@ -124,7 +143,7 @@
 
                              <br/>
 
-                           <button class="btn btn-success centered btn-block" type="submit" name="action">Enviar</button>
+                           <button class="btn btn-success centered btn-block" type="submit" name="enviarSalida">Enviar</button>
                            <br>
                            <div class="clearfix"></div>
                          </form>
@@ -139,15 +158,22 @@
                               <div class="form-group">
                                   <label for="reservacionLlegada">Seleccione la reserva a la que corresponde el reporte</label>
                                   <select class="form-control" id="reservacionLlegada" name="reservacionLlegada">
-                                    <option>28/08/2018 - Paulo</option>
-                                    <option>01/09/2018 - Paulo</option>
+                                      <?php
+                                      foreach($reservasEntrada as $row){
+                                          $fechaInicio = new DateTime ($row->FechaInicio);
+                                          $horaInicio = new DateTime ($row->HoraInicio);
+                                          echo "<option>".$row->PlacaVehiculo." - ".$fechaInicio->format('d/m/Y')." - ".$horaInicio->format('h:i a')."</option>";
+                                      }
+                                    ?>
                                   </select>
                                 </div>
                            </div>
+
+
                            <div class="col-md-12">
                                <div id="FechaLlegada" class="form-group">
                                         <label >Fecha de Llegada</label>
-                                        <input type="text" id="datepicker2" class="form-control floating-label" placeholder="Anote la fecha de llegada">
+                                        <input type="text" id="datepicker2" class="form-control floating-label" placeholder="Anote la fecha de llegada" disabled>
 
                                         <script>
                                           $('#datepicker2').datepicker();
@@ -157,7 +183,7 @@
                            <div class="col-md-12">
                                <div id="HoraLlegada" class="form-group">
                                         <label >Hora de Llegada</label>
-                                        <input type="text" id="timeLlegada" class="form-control floating-label" placeholder="Anote la hora de llegada">
+                                        <input type="text" id="timeLlegada" class="form-control floating-label" placeholder="Anote la hora de llegada" disabled>
                                         <script>
                                           $('#timeLlegada').timepicker();
                                         </script>
@@ -224,7 +250,7 @@
 
                             <br/>
 
-                          <button class="btn btn-success centered btn-block" type="submit" name="action">Enviar</button>
+                          <button class="btn btn-success centered btn-block" type="submit" name="enviarLlegada">Enviar</button>
                           <br>
                           <div class="clearfix"></div>
                         </form>                        <!--Acaban las llegadas -->

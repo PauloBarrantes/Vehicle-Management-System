@@ -41,6 +41,8 @@ class User extends CI_Model {
         }
     }
 
+
+
     // Revisa si el email coincide con el password dados
     public function checkLogin($post) {
         $this->load->library('password');
@@ -68,6 +70,29 @@ class User extends CI_Model {
     public function getUsers(){
         $query = $this->db->get('usuarios');
         return $query->result();
+    }
+
+    public function editProfile($email, $post){
+        $this->db->where('email', $email);
+        $this->db->update('usuarios', array('email' => $post['email'], 'nombre' => $post['name'], 'apellido1' => $post['lastName']));
+        $success = $this->db->affected_rows();
+
+        if(!$success){
+            return false;
+        }
+        return true;
+    }
+    public function deleteUser($email)
+    {
+        $this->db->where('email', $email);
+        $this->db->delete('usuarios');
+
+        if ($this->db->affected_rows() == '1') {
+            return FALSE;
+        }
+        else {
+            return TRUE;
+        }
     }
 
 

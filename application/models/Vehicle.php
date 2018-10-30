@@ -50,11 +50,7 @@ class Vehicle extends CI_Model {
         return $query->result();
     }
 
-    public function getReservasPorEmail($email){
-        $query = $this->db->get('reserva');
-        return $query->result();
 
-    }
 
 
 

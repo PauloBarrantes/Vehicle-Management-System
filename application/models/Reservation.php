@@ -31,7 +31,10 @@ class Reservation extends CI_Model {
           $query = $this->db->get('reserva');
           return $query->result();
       }
-
+      public function getReservationByEmail($email){
+          $query = $this->db->get_where('reserva', array('EmailUsuario' => $email));
+          return $query->result();
+      }
 
 
 

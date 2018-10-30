@@ -6,6 +6,7 @@ class Vehiculos extends CI_Controller {
 			parent::__construct();
 			$this->load->model('User', 'user_model', TRUE);
 			$this->load->model('Vehicle', 'vehicle_model', TRUE);
+			$this->load->model('Reservation', 'reservation_model', TRUE);
 
 			$this->load->library('form_validation');
 			$this->form_validation->set_error_delimiters('<div class="error">', '</div>');
@@ -107,7 +108,7 @@ class Vehiculos extends CI_Controller {
 		}else {
 			$data = $this->session->userdata;
 			$data['title'] = "Mis Reservas";
-			$data['reservas'] = $this->vehicle_model->getReservasPorEmail($data["email"]);
+			$data['reservas'] = $this->reservation_model->getReservationByEmail($data['email']);
 			$this->load->view('MainViews/header',$data);
 			$this->load->view('MainViews/sidebar',$data);
 			$this->load->view('Vehicles/reservations',$data);
@@ -132,6 +133,7 @@ class Vehiculos extends CI_Controller {
 			$this->form_validation->set_rules('fechaSalida','Fecha de Salida','required');
 			$this->form_validation->set_rules('horaSalida','Hora de Salida','required');
 			$this->form_validation->set_rules('horaLlegada','Hora de Llegada','required');
+
 
 			$data['title'] = "Reservación";
 			$data['vehiculos'] = $this->vehicle_model->getVehicles();
@@ -181,10 +183,8 @@ class Vehiculos extends CI_Controller {
 
 
     }
-
-	public function listaReservas(){
+	public function controlDeUso(){
 		$data = $this->session->userdata;
-
 		if(empty($data)){
 			redirect(site_url().'main/login/');
 		}
@@ -195,23 +195,121 @@ class Vehiculos extends CI_Controller {
 		if (empty($this->session->userdata['email'])) {
 			redirect(site_url().'main/login/');
 		}else {
+			$data['title'] = "Control de Uso";
+			$data['vehiculos'] = $this->vehicle_model->getVehicles();
+			$data['reservasSalida'] = $this->reservation_model->getReservationByEmail($data['email']);
+			$data['reservasEntrada'] = $this->reservation_model->getReservationByEmail($data['email']);
+
+			if (isset ($_POST['enviarSalida'])){
+				$this->form_validation->set_rules('carros','Vehículo','required');
+				$this->form_validation->set_rules('fechaSalida','Fecha de Salida','required');
+				$this->form_validation->set_rules('horaSalida','Hora de Salida','required');
+				$this->form_validation->set_rules('horaLlegada','Hora de Llegada','required');
+
+
+				if ($this->form_validation->run() == FALSE) {
+					$this->load->view('MainViews/header',$data);
+					$this->load->view('MainViews/sidebar',$data);
+					$this->load->view('Vehicles/usageControl',$data);
+					$this->load->view('MainViews/footer');
+				}else{
+					if($this->vehicle_model->reservationDuplicate(
+						$this->input->post('carros'),
+						$this->input->post('fechaSalida'),
+						$this->input->post('fechaLlegada'),
+						$this->input->post('horaSalida'),
+						$this->input->post('horaLlegada')
+					)){
+						$this->session->set_flashdata('flash_message','El vehículo ya está reservado para esa hora');
+						redirect(site_url().'vehiculos/reservar');
+					}else{
+						$post = $this->input->post(NULL, TRUE);
+
+						$fechaSalida1 = new DateTime($post['fechaSalida']);
+						$fechaLlegada1 = new DateTime($post['fechaLlegada']);
+
+						$reserva = array(
+							'FechaInicio'		=> 	$fechaSalida1->format("Y-m-d H:i:s"),
+							'HoraInicio'		=>	$post['horaSalida'],
+							'PlacaVehiculo'		=>	$post['carros'],
+							'EmailUsuario'		=>	$data['email'],
+							'FechaFinalizacion'	=>	$fechaLlegada1->format("Y-m-d H:i:s"),
+							'HoraFinalizacion'	=>	$post['horaLlegada'],
+							'TodoElDia'			=>	$v1,
+							'VariosDias'		=>	$v2
+						);
+						if (!$this->vehicle_model->addReservation($reserva)) {
+							$this->session->set_flashdata('flash_message','Existe un problema realizando la reserva');
+						}else{
+							$this->session->set_flashdata('success_message','Reserva realizada con éxito');
+						}
+						redirect(site_url().'main/');
+					}
+				}
+			}elseif (isset ($_POST['enviarLlegada'])) {
+				$this->form_validation->set_rules('carros','Vehículo','required');
+				$this->form_validation->set_rules('fechaSalida','Fecha de Salida','required');
+				$this->form_validation->set_rules('horaSalida','Hora de Salida','required');
+				$this->form_validation->set_rules('horaLlegada','Hora de Llegada','required');
+
+
+				if ($this->form_validation->run() == FALSE) {
+					$this->load->view('MainViews/header',$data);
+					$this->load->view('MainViews/sidebar',$data);
+
+					$this->load->view('Vehicles/usageControl',$data);
+					$this->load->view('MainViews/footer');
+				}else{
+					if($this->vehicle_model->reservationDuplicate(
+						$this->input->post('carros'),
+						$this->input->post('fechaSalida'),
+						$this->input->post('fechaLlegada'),
+						$this->input->post('horaSalida'),
+						$this->input->post('horaLlegada')
+					)){
+						$this->session->set_flashdata('flash_message','El vehículo ya está reservado para esa hora');
+						redirect(site_url().'vehiculos/reservar');
+					}else{
+						$post = $this->input->post(NULL, TRUE);
+
+						$fechaSalida1 = new DateTime($post['fechaSalida']);
+						$fechaLlegada1 = new DateTime($post['fechaLlegada']);
+
+						$reserva = array(
+							'FechaInicio'		=> 	$fechaSalida1->format("Y-m-d H:i:s"),
+							'HoraInicio'		=>	$post['horaSalida'],
+							'PlacaVehiculo'		=>	$post['carros'],
+							'EmailUsuario'		=>	$data['email'],
+							'FechaFinalizacion'	=>	$fechaLlegada1->format("Y-m-d H:i:s"),
+							'HoraFinalizacion'	=>	$post['horaLlegada'],
+							'TodoElDia'			=>	$v1,
+							'VariosDias'		=>	$v2
+						);
+						if (!$this->vehicle_model->addReservation($reserva)) {
+							$this->session->set_flashdata('flash_message','Existe un problema realizando la reserva');
+						}else{
+							$this->session->set_flashdata('success_message','Reserva realizada con éxito');
+						}
+						redirect(site_url().'main/');
+					}
+
+
+				}
+
+			}else{
+				$this->load->view('MainViews/header',$data);
+				$this->load->view('MainViews/sidebar',$data);
+				$this->load->view('Vehicles/usageControl',$data);
+				$this->load->view('MainViews/footer');
+			}
 
 		}
 
 
-	}
-	public function controlDeUso(){
-		$data = $this->session->userdata;
-
-		$data['title'] = "Reservación";
-        $this->load->view('MainViews/header',$data);
-        $this->load->view('MainViews/sidebar',$data);
-
-        $this->load->view('Vehicles/usageControl');
-        $this->load->view('MainViews/footer');
+    }
 
 
-	}
+
 
 	public function mantenimiento(){
 		$data = $this->session->userdata;
