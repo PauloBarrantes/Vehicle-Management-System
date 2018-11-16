@@ -171,10 +171,10 @@ class Main extends CI_Controller {
 					if(!$this->user_model->editProfile($data['email'],$post)){
 						$this->session->set_flashdata('flash_message','Existe un problema agregando al usuario');
 					}else{
-						$this->session->set_flashdata('success_message','Usuario agregado con éxito');
-						$data['email'] = $post['email'];
-						$data['nombre'] = $post['name'];
-						$data['apellido1'] = $post['lastName'];
+						$this->session->set_flashdata('success_message','Datos actualizados con éxito');
+						$this->session->set_userdata('email',$post['email']);
+						$this->session->set_userdata('nombre',$post['name']);
+						$this->session->set_userdata('apellido1',$post['lastName']);
 					}
 					redirect(site_url().'main/editarPerfil');
 				}

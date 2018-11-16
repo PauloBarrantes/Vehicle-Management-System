@@ -22,7 +22,7 @@
                     <div class="input-group">
 
                       <input name="name"type="text" id="name"class="form-control" placeholder="Nombre"
-                      value=<?php echo "".$datosPerfil->nombre ?>
+                      value=<?php echo '"'.$datosPerfil->nombre.'"' ?>
                       >
                     </div>
                   </div>
@@ -33,7 +33,7 @@
 
                       <input name="lastName"type="text" id="lastName"class="form-control" placeholder="Apellido"
 
-                      value=<?php echo "".$datosPerfil->apellido1  ?>
+                      value=<?php echo '"'.$datosPerfil->apellido1.'"'  ?>
                       >
                     </div>
                   </div>
@@ -43,7 +43,7 @@
                     <div class="input-group">
 
                       <input name="email"type="email" id="email"class="form-control" placeholder="Correo electrónico"
-                            value=<?php echo "".$datosPerfil->email  ?>>
+                            value=<?php echo '"'.$datosPerfil->email.'"'  ?>>
                     </div>
                   </div>
                 </div>
