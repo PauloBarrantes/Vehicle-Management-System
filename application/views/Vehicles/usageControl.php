@@ -41,6 +41,7 @@
                                    <label for="reservacionSalida">Seleccione la reserva a la que corresponde el reporte</label>
                                    <select class="form-control" id="reservacionSalida" name="reservacionSalida" onchange="selectReservation()">
                                        <?php
+                                       echo "<option selected = 'selected'>Seleccione una reserva</option>";
                                        foreach($reservasSalida as $row){
                                            $fechaInicio = new DateTime ($row->FechaInicio);
                                            $horaInicio = new DateTime ($row->HoraInicio);
@@ -54,14 +55,26 @@
                             <script>
                                 function selectReservation(){
                                     var select = $("#reservacionSalida");
+
                                     var texto = select.val();
-                                    var splitTexto = texto.split(" - ");
-                                    $("#placa").html("Placa del vehículo: "+splitTexto[0]);
-                                    $("#fechaSalida").html("Fecha de Salida: "+splitTexto[1]);
-                                    $("#horaSalida").html("Hora de Salida: "+splitTexto[2]);
-                                    $("#inputPlaca").val(splitTexto[0]);
-                                    $("#inputFechaSalida").val(splitTexto[1]);
-                                    $("#inputHoraSalida").val(splitTexto[2]);
+                                    if(texto != "Seleccione una reserva"){
+                                        var splitTexto = texto.split(" - ");
+                                        $("#placa").html("Placa del vehículo: "+splitTexto[0]);
+                                        $("#fechaSalida").html("Fecha de Salida: "+splitTexto[1]);
+                                        $("#horaSalida").html("Hora de Salida: "+splitTexto[2]);
+                                        $("#inputPlaca").val(splitTexto[0]);
+                                        $("#inputFechaSalida").val(splitTexto[1]);
+                                        $("#inputHoraSalida").val(splitTexto[2]);
+                                    }else{
+                                        $("#placa").html("Placa del vehículo:");
+                                        $("#fechaSalida").html("Fecha de Salida: ");
+                                        $("#horaSalida").html("Hora de Salida: ");
+                                        $("#inputPlaca").val('');
+                                        $("#inputFechaSalida").val('');
+                                        $("#inputHoraSalida").val('');
+
+                                    }
+
                                 }
 
                             </script>

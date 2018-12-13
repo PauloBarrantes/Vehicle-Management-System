@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <script src="<?php echo base_url().'public/js/moment-with-locales.js' ?>"></script>
         <script src="<?php echo base_url().'public/js/fullcalendar.js' ?>"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        
+
         <script src="<?php echo base_url().'public/js/material-dashboard.js'?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gijgo/1.9.10/combined/js/gijgo.min.js"></script>
 

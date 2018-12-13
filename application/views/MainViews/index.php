@@ -71,15 +71,33 @@
         console.log(reservas);
         var eventos = [];
         for(var k in reservas) {
-           evento = {
-               title: reservas[k].nombre + " " + reservas[k].apellido1,
-               start: new Date(reservas[k].FechaInicio +"T" +reservas[k].HoraInicio),
-               end: new Date(reservas[k].FechaFinalizacion +"T"+ reservas[k].HoraFinalizacion),
-               className: 'success'
-           };
+            inicio = moment(reservas[k].FechaInicio);
+            fin = moment(reservas[k].FechaFinalizacion);
+            console.log(reservas[k].HoraInicio);
+            console.log(reservas[k].HoraFinalizacion);
+            var horaInicio = reservas[k].HoraInicio.split(':')
+            var horaFin = reservas[k].HoraFinalizacion.split(':')
+            console.log(horaInicio)
+            console.log(horaFin)
+            inicio.hour(horaInicio[0]);
+            inicio.minute(horaInicio[1]);
+
+            fin.hour(horaFin[0]);
+            fin.minute(horaFin[1])
+            console.log(horaFin)
+
+
+            evento = {
+                title: reservas[k].nombre + " - "  + reservas[k].PlacaVehiculo,
+                start: inicio.format("YYYY-MM-DDTHH:mm"),
+                end: fin.format("YYYY-MM-DDTHH:mm"),
+                className: 'success',
+                allDay: false
+            };
 
            eventos.push(evento);
         }
+
 		var calendar =  $('#calendar').fullCalendar({
 			header: {
 				left: 'title',
@@ -89,9 +107,10 @@
 			editable: false,
 			firstDay: 1, //  1(Monday) this can be changed to 0(Sunday) for the USA system
 			selectable: false,
-			defaultView: 'month',
-
+			defaultView: 'agendaWeek',
+            eventLimit: true, // allow "more" link when too many events
 			axisFormat: 'h:mm',
+
 			columnFormat: {
                 month: 'ddd',    // Mon
                 week: 'ddd d', // Mon 7
@@ -105,23 +124,6 @@
             },
             aspectRatio: 2,
 			allDaySlot: true,
-			selectHelper: true,
-			select: function(start, end, allDay) {
-				var title = prompt('Event Title:');
-				if (title) {
-					calendar.fullCalendar('renderEvent',
-						{
-							title: title,
-							start: start,
-							end: end,
-							allDay: allDay
-						},
-						true // make the event "stick"
-					);
-				}
-				calendar.fullCalendar('unselect');
-			},
-			droppable: false, // this allows things to be dropped onto the calendar !!!
 
             events: eventos
 

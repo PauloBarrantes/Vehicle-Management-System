@@ -144,40 +144,38 @@ class Vehiculos extends CI_Controller {
 				$this->load->view('Vehicles/reservation', $data);
 				$this->load->view('MainViews/footer');
 			}else{
-				if($this->vehicle_model->reservationDuplicate(
-					$this->input->post('carros'),
+				if(!$this->reservation_model->isAlreadyReserved(
 					$this->input->post('fechaSalida'),
-					$this->input->post('fechaLlegada'),
 					$this->input->post('horaSalida'),
-					$this->input->post('horaLlegada')
-				)){
+					$this->input->post('horaLlegada'),
+					$this->input->post('fechaLlegada')))
+
+				{
 					$this->session->set_flashdata('flash_message','El vehículo ya está reservado para esa hora');
 					redirect(site_url().'vehiculos/reservar');
-				}else{
-					$post = $this->input->post(NULL, TRUE);
-
-					$fechaSalida1 = new DateTime($post['fechaSalida']);
-					$fechaLlegada1 = new DateTime($post['fechaLlegada']);
-
-					$reserva = array(
-						'FechaInicio'		=> 	$fechaSalida1->format("Y-m-d H:i:s"),
-						'HoraInicio'		=>	$post['horaSalida'],
-						'PlacaVehiculo'		=>	$post['carros'],
-						'EmailUsuario'		=>	$data['email'],
-						'FechaFinalizacion'	=>	$fechaLlegada1->format("Y-m-d H:i:s"),
-						'HoraFinalizacion'	=>	$post['horaLlegada'],
-						'TodoElDia'			=>	$v1,
-						'VariosDias'		=>	$v2
-					);
-					if (!$this->vehicle_model->addReservation($reserva)) {
-						$this->session->set_flashdata('flash_message','Existe un problema realizando la reserva');
 					}else{
-						$this->session->set_flashdata('success_message','Reserva realizada con éxito');
+						$post = $this->input->post(NULL, TRUE);
+
+						$fechaSalida1 = new DateTime($post['fechaSalida']);
+						$fechaLlegada1 = new DateTime($post['fechaLlegada']);
+
+						$reserva = array(
+							'FechaInicio'		=> 	$fechaSalida1->format("Y-m-d H:i:s"),
+							'HoraInicio'		=>	$post['horaSalida'],
+							'PlacaVehiculo'		=>	$post['carros'],
+							'EmailUsuario'		=>	$data['email'],
+							'FechaFinalizacion'	=>	$fechaLlegada1->format("Y-m-d H:i:s"),
+							'HoraFinalizacion'	=>	$post['horaLlegada'],
+							'TodoElDia'			=>	0,
+							'VariosDias'		=>	0
+						);
+						if (!$this->vehicle_model->addReservation($reserva)) {
+							$this->session->set_flashdata('flash_message','Existe un problema realizando la reserva');
+						}else{
+							$this->session->set_flashdata('success_message','Reserva realizada con éxito');
+						}
+						redirect(site_url().'main/');
 					}
-					redirect(site_url().'main/');
-				}
-
-
 			}
 		}
 
@@ -213,16 +211,6 @@ class Vehiculos extends CI_Controller {
 					$this->load->view('Vehicles/usageControl',$data);
 					$this->load->view('MainViews/footer');
 				}else{
-					if($this->vehicle_model->reservationDuplicate(
-						$this->input->post('carros'),
-						$this->input->post('fechaSalida'),
-						$this->input->post('fechaLlegada'),
-						$this->input->post('horaSalida'),
-						$this->input->post('horaLlegada')
-					)){
-						$this->session->set_flashdata('flash_message','El vehículo ya está reservado para esa hora');
-						redirect(site_url().'vehiculos/reservar');
-					}else{
 						$post = $this->input->post(NULL, TRUE);
 
 						$fechaSalida1 = new DateTime($post['fechaSalida']);

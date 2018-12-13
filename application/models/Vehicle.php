@@ -20,9 +20,7 @@ class Vehicle extends CI_Model {
         $this->db->query($q);
         return $this->db->affected_rows();
     }
-    public function reservationDuplicate($placa, $fechaSalida, $fechaLlegada, $horaSalida, $horaLlegada){
-        return false;
-    }
+
 
     public function addReservation($reserva){
         // $this->db->trans_start();
@@ -49,7 +47,35 @@ class Vehicle extends CI_Model {
         $query = $this->db->get('reserva');
         return $query->result();
     }
+    public function actualizarKilometraje($placa,$km){
+        $this->db->trans_start();
+            $this->db->where('placa', $placa);
+            $this->db->update('vehiculos', array('kilometraje' => $km));
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE){
+            $this->db->trans_rollback();
+        }
+        else{
+                $this->db->trans_commit();
+            }
+        return $this->db->affected_rows() > 0 ? TRUE : FALSE;
 
+    }
+
+    public function actualizarCombustible($placa,$combustible){
+        $this->db->trans_start();
+            $this->db->where('placa', $placa);
+            $this->db->update('vehiculos', array('combustible' => $combustible));
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE){
+            $this->db->trans_rollback();
+        }
+        else{
+                $this->db->trans_commit();
+            }
+        return $this->db->affected_rows() > 0 ? TRUE : FALSE;
+
+    }
 
 
 

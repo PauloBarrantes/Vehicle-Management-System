@@ -23,8 +23,19 @@ class Reservation extends CI_Model {
         return $this->db->insert_id();
       }
     //check is duplicate
-      public function isAlreadyReserved($fechaInicio, $horaInicio){
-          $this->db->get_where('reserva', array('FechaInicio' => $email, ), 1);
+      public function isAlreadyReserved($fechaInicio, $horaInicio, $horaFin, $fechaFin){
+          $date = new DateTime($fechaInicio);
+          $dateFormat = $date->format('Y-m-d');
+          $date2 = new DateTime($fechaFin);
+          $dateFormat2 = $date2->format("Y-m-d");
+          $this->db->select('*');
+          $this->db->from('reserva');
+          $this->db->where("FechaInicio >=", $dateFormat);
+          $this->db->where("FechaFinalizacion <=", $dateFormat2);
+          $this->db->where("HoraInicio >=", $horaInicio);
+          $this->db->where("HoraFinalizacion <=", $horaFin);
+          $this->db->get();
+
           return $this->db->affected_rows() > 0 ? TRUE : FALSE;
       }
       public function getReservations(){
@@ -33,7 +44,8 @@ class Reservation extends CI_Model {
                 FechaInicio,
                 HoraFinalizacion,
                 HoraInicio,
-                PlacaVehiculo')
+                PlacaVehiculo,
+                nombre')
             ->from('reserva')
             ->join('usuarios', 'usuarios.email = reserva.EmailUsuario');
             $query = $this->db->get();
