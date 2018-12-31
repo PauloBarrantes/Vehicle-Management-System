@@ -38,6 +38,11 @@ class Reservation extends CI_Model {
 
           return $this->db->affected_rows() > 0 ? TRUE : FALSE;
       }
+
+      public function addDeparture($departure){
+          $query= $this->db->insert_string('controlUsoSalida',$departure);
+          $this->db->query($query);
+      }
       public function getReservations(){
             $this->db->select('EmailUsuario,
                 FechaFinalizacion,

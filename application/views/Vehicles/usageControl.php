@@ -30,10 +30,13 @@
                         </div>
                       </div>
                     </div>
+
                     <div class="card-body">
                       <div class="tab-content">
                         <div class="tab-pane active" id="salidas">
                          <!--Inician las salidas -->
+                         <?php $fattr = array('class' => 'form-signin');
+                          echo form_open(site_url().'vehiculos/controlDeUso', $fattr); ?>
                          <form class="login-form">
 
                             <div class="col-md-12">
@@ -164,6 +167,8 @@
 
                         </div>
                         <div class="tab-pane" id="llegadas">
+                        <?php $fattr = array('class' => 'form-signin');
+                        echo form_open(site_url().'vehiculos/controlDeUso', $fattr); ?>
                         <!--Inician las llegadas -->
                         <form class="login-form">
 
@@ -265,6 +270,7 @@
 
                           <button class="btn btn-success centered btn-block" type="submit" name="enviarLlegada">Enviar</button>
                           <br>
+
                           <div class="clearfix"></div>
                         </form>                        <!--Acaban las llegadas -->
 

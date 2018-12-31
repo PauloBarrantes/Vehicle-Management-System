@@ -198,7 +198,9 @@ class Vehiculos extends CI_Controller {
 			$data['reservasSalida'] = $this->reservation_model->getReservationByEmail($data['email']);
 			$data['reservasEntrada'] = $this->reservation_model->getReservationByEmail($data['email']);
 
+
 			if (isset ($_POST['enviarSalida'])){
+
 				$this->form_validation->set_rules('carros','Vehículo','required');
 				$this->form_validation->set_rules('fechaSalida','Fecha de Salida','required');
 				$this->form_validation->set_rules('horaSalida','Hora de Salida','required');
@@ -212,28 +214,27 @@ class Vehiculos extends CI_Controller {
 					$this->load->view('MainViews/footer');
 				}else{
 						$post = $this->input->post(NULL, TRUE);
+						var_dump($post);
+						$fechaSalida = new DateTime($post['inputFechaSalida']);
+						$horaSalida = $post['inputHoraSalida'];
+						$placaVehiculo = $post['inputPlaca'];
 
-						$fechaSalida1 = new DateTime($post['fechaSalida']);
-						$fechaLlegada1 = new DateTime($post['fechaLlegada']);
-
-						$reserva = array(
-							'FechaInicio'		=> 	$fechaSalida1->format("Y-m-d H:i:s"),
-							'HoraInicio'		=>	$post['horaSalida'],
-							'PlacaVehiculo'		=>	$post['carros'],
-							'EmailUsuario'		=>	$data['email'],
-							'FechaFinalizacion'	=>	$fechaLlegada1->format("Y-m-d H:i:s"),
-							'HoraFinalizacion'	=>	$post['horaLlegada'],
-							'TodoElDia'			=>	$v1,
-							'VariosDias'		=>	$v2
+						$salida = array(
+							'fecha'		=> 	$fechaSalida->format("Y-m-d H:i:s"),
+							'hora'		=>	$horaSalida,
+							'placaVehiculo'		=>	$placaVehiculo,
+							'kilometraje'		=>	$post['kmSalida'],
+							'combustible'	=>	$post['combustible'],
+							'observaciones'	=>	$post['observaciones']
 						);
 						if (!$this->vehicle_model->addReservation($reserva)) {
 							$this->session->set_flashdata('flash_message','Existe un problema realizando la reserva');
 						}else{
 							$this->session->set_flashdata('success_message','Reserva realizada con éxito');
 						}
-						redirect(site_url().'main/');
-					}
+						//redirect(site_url().'main/');
 				}
+
 			}elseif (isset ($_POST['enviarLlegada'])) {
 				$this->form_validation->set_rules('carros','Vehículo','required');
 				$this->form_validation->set_rules('fechaSalida','Fecha de Salida','required');
@@ -278,23 +279,24 @@ class Vehiculos extends CI_Controller {
 						}else{
 							$this->session->set_flashdata('success_message','Reserva realizada con éxito');
 						}
-						redirect(site_url().'main/');
+						//redirect(site_url().'main/');
 					}
-
-
 				}
 
 			}else{
+
 				$this->load->view('MainViews/header',$data);
 				$this->load->view('MainViews/sidebar',$data);
 				$this->load->view('Vehicles/usageControl',$data);
+
 				$this->load->view('MainViews/footer');
 			}
 
 		}
+	}
 
 
-    }
+
 
 
 
